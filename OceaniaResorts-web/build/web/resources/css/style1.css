@@ -1,0 +1,114 @@
+.hotel_booking_table {
+  background: #04091e;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  padding: 40px 50px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.hotel_booking_table h2 {
+  font-size: 24px;
+  line-height: 30px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.boking_table {
+  margin-left: -50px;
+}
+
+.book_tabel_item .form-group {
+  margin-bottom: 0px;
+}
+
+.book_tabel_item .form-group .input-group {
+  position: relative;
+}
+
+.book_tabel_item .form-group .input-group .form-control {
+  border: 1px solid #2b3146;
+  background: transparent;
+  border-radius: 0px;
+  font-size: 13px;
+  line-height: 38px;
+  padding: 0px 20px;
+  color: #777777;
+  z-index: 0;
+}
+
+.book_tabel_item .form-group .input-group .form-control.placeholder {
+  color: #777777;
+}
+
+.book_tabel_item .form-group .input-group .form-control:-moz-placeholder {
+  color: #777777;
+}
+
+.book_tabel_item .form-group .input-group .form-control::-moz-placeholder {
+  color: #777777;
+}
+
+.book_tabel_item .form-group .input-group .form-control::-webkit-input-placeholder {
+  color: #777777;
+}
+
+.book_tabel_item .form-group .input-group .form-control:focus {
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+
+.book_tabel_item .form-group .input-group .input-group-addon {
+  background: transparent;
+  padding: 0px;
+  border: 0px;
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  color: #777777;
+  z-index: 2;
+}
+
+.book_tabel_item .input-group {
+  margin-bottom: 10px;
+}
+
+.book_tabel_item .nice-select {
+  background: transparent;
+  border-radius: 0px;
+  border: 1px solid #2b3146;
+  font-size: 13px;
+  line-height: 40px;
+  height: 40px;
+  color: #777;
+}
+
+.book_tabel_item .nice-select:after {
+  content: "\e874";
+  font-family: 'Linearicons-Free';
+  font-size: 13px;
+  color: #777777;
+  border: 0px;
+  top: 0;
+  margin-top: 0px;
+  right: 20px;
+  -webkit-transform: rotate(0);
+  -ms-transform: rotate(0);
+  transform: rotate(0);
+  -webkit-transform-origin: 0 0;
+  -ms-transform-origin: 0 0;
+  transform-origin: 0 0;
+}
+
+#searchArea {
+    margin-top: 50px;
+}
+#searchArea h1{
+    font-weight: 500;
+}
