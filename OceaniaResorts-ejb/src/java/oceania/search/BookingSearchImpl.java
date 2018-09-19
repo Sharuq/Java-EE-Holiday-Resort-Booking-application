@@ -23,9 +23,9 @@ public class BookingSearchImpl implements BookingDetailsSearch {
     private EntityManager entityManager;
 
     @Override
-    public List<Booking> searchByBookingNo(int BookingID) throws Exception {
+    public List<Booking> searchByBookingNo(int BookingNo) throws Exception {
         Query query =entityManager.createNamedQuery("Booking.findByBookingNo");
-        query.setParameter("BookingID", BookingID);
+        query.setParameter("bookingNo", BookingNo);
        return query.getResultList();
     }
 
