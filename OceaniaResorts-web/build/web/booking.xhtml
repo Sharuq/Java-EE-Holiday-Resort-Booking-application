@@ -3,7 +3,8 @@
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://xmlns.jcp.org/jsf/html"
       xmlns:f="http://xmlns.jcp.org/jsf/core"
-    xmlns:pt="http://xmlns.jcp.org/jsf/passthrough">
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Oceania Resorts</title>
         <h:outputStylesheet  name="css/style1.css"></h:outputStylesheet>
@@ -45,19 +46,42 @@
     <div class="row">    
         <div class="col-xs-8 col-xs-offset-2">
             <div class="input-group" id="searchbox" >
-                <h:selectOneMenu value="#{booking.OptionSelected}">
+                <h:selectOneMenu value="#{bookingDetailsSearchBean.optionSelected}">
                 <f:selectItem itemValue="Booking Number" itemLabel="Booking Number" />
                 <f:selectItem itemValue="Booking Type" itemLabel="Booking Type" />
                 <f:selectItem itemValue="Booking Name" itemLabel="Booking Name" />
                 </h:selectOneMenu>
-                <h:inputText value="#{bean.value}" required="true" pt:placeholder="Search..."></h:inputText>
+                <h:inputText value="#{bookingDetailsSearchBean.searchKeyword}"  binding="#{searchKeyword}" required="true" requiredMessage="Please enter the search keyword!" pt:placeholder="Search..."></h:inputText>
                 
-                <h:commandButton class="btn btn-default" id="btnsearch" value ="SEARCH" action="search.xhtml"></h:commandButton>
+                <h:commandButton class="btn btn-default" id="btnsearch" value ="SEARCH" action="#{bookingDetailsSearchBean.searchBooking()}"></h:commandButton>
                 
             </div>
         </div>
     </div>
      </h:form>
+      <div class="container">
+        <table class="table table-bordered table-striped">
+                    <!-- For each booking in search result List... --> 
+                    <ui:repeat id="Myrepeat" value="#{bookingDetailsSearchBean.searchResultList}" var="searchResult" varStatus="status"> 
+                        <tr> 
+                            <td> 
+                                <h:outputLabel id="outBookingNo" value="Booking Number"  />
+                            </td>
+                            <td>
+                                <h:outputText value="#{searchResult.bookingNo}" id="bookingNo" /> 
+                            </td>
+                            
+                            <td> 
+                                <h:outputLabel id="outBookingName" value="Booking Name"/></td>
+                            <td> 
+                                <h:outputText  value="#{searchResult.bookingName}" id="bookingName" ></h:outputText>
+                            </td>
+                        </tr> 
+
+                    </ui:repeat> 
+
+                </table>
+        </div>
  </div>
            
         
