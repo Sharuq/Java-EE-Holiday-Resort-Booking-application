@@ -11,6 +11,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import oceania.entities.Booking;
+import javax.persistence.TypedQuery;
 
 /**
  *
@@ -31,12 +32,36 @@ public class BookingSearchImpl implements BookingDetailsSearch {
 
     @Override
     public List<Booking> searchByBookingType(String BookingType) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       Query query =entityManager.createNamedQuery("Booking.findByBookingType");
+        query.setParameter("bookingType", BookingType);
+       return query.getResultList();
     }
 
     @Override
     public List<Booking> searchByBookingName(String BookingName) throws Exception {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+       
+    Query query =entityManager.createNamedQuery("Booking.findByBookingName");
+        query.setParameter("bookingName", BookingName);
+       return query.getResultList();
+    }
+
+    @Override
+    public List<Booking> getAllBookingProperties() throws Exception {
+     Query query =entityManager.createNamedQuery("Booking.findAll");
+        return query.getResultList();  
+    }
+
+    @Override
+    public Booking bookingDetails(int BookingNo) throws Exception {
+       //TypedQuery query =entityManager.createNamedQuery("Booking.findAll",Booking.class);
+       //query.setParameter("bookingNo", BookingNo);
+       //return query.getSingleResult();
+        Booking result;
+        TypedQuery<Booking> query =entityManager.createNamedQuery("Booking.findByBookingNo",Booking.class);
+        query.setParameter("bookingNo", BookingNo);
+        result= query.getSingleResult();
+        //Booking booking = entityManager.find(Booking.class, BookingNo);
+        return result;
     }
  
     

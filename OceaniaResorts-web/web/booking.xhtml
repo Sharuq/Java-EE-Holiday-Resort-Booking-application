@@ -22,11 +22,11 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand page-scroll" href="#main"><img src="resources/assets/logo.png" width="80" height="30" alt="image missing" /></a> </div>
+          <a class="navbar-brand page-scroll" href="faces/index.xhtml"><img src="resources/assets/logo.png" width="80" height="40" alt="image missing" /></a> </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-          <li><a class="page-scroll" href="#Home">Home</a></li>
+          <li><a class="page-scroll" href="faces/index.xhtml">Home</a></li>
           <li><a class="page-scroll" href="#Destinations">Destinations</a></li>
           <li><a class="page-scroll" href="#Activities">Activities</a></li>
           <li><a class="page-scroll" href="#Bookings">Bookings</a></li>
@@ -58,22 +58,29 @@
             </div>
         </div>
     </div> 
-      </h:form>  
-       <table class="table table-bordered table-striped">
+      </h:form> 
+     <br></br>
+       <table class="table table-hover table-bordered table-striped ">
                     <!-- For each booking in search result List... --> 
+                    <thead style="background-color:#d5d5d5;">
+                            <tr>
+                              <th scope="col">Booking Number</th>
+                              <th scope="col">Booking Name</th>
+                              <th scope="col">View Booking Details</th>
+                            </tr>
+                       </thead>
                     <ui:repeat id="Myrepeat" value="#{bookingDetailsSearchBean.searchResultList}" var="searchResult" varStatus="status"> 
+                        
                         <tr> 
-                            <td> 
-                                <h:outputLabel id="outBookingNo" value="Booking Number"  />
-                            </td>
                             <td>
                                 <h:outputText value="#{searchResult.bookingNo}" id="bookingNo" /> 
                             </td>
-                            
-                            <td> 
-                                <h:outputLabel id="outBookingName" value="Booking Name"/></td>
-                            <td> 
+                            <td>
                                 <h:outputText  value="#{searchResult.bookingName}" id="bookingName" ></h:outputText>
+                            </td>
+                            <td>
+                                <h:button class="btn btn-default" value="View Details" outcome="bookingDetails">
+                                <f:param  name="bookingNo"  value="#{searchResult.bookingNo}"></f:param> </h:button>
                             </td>
                         </tr> 
 

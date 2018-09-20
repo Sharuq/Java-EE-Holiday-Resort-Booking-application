@@ -3,10 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/OceaniaResorts-web/web/booking.xhtml</file>
-            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/OceaniaResorts-web/src/java/oceania/controllers/BookingDetailsSearchBean.java</file>
-            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/OceaniaResorts-web/web/resources/css/style1.css</file>
-            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/OceaniaResorts-web/web/index.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/bookingDetails.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/booking.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/index.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/BookingDetailsSearchBean.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/DetailsBean.java</file>
         </group>
     </open-files>
 </project-private>

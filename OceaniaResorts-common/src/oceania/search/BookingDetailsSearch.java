@@ -17,6 +17,10 @@ import oceania.entities.Booking;
 @Remote
 public interface BookingDetailsSearch {
     
+    public List<Booking> getAllBookingProperties() throws Exception;
+    
+    public Booking bookingDetails(int BookingID) throws Exception;
+    
     public List<Booking> searchByBookingNo(int BookingID) throws Exception;
     
     public List<Booking> searchByBookingType(String BookingType) throws Exception;
