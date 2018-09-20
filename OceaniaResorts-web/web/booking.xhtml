@@ -44,16 +44,18 @@
      <br></br>
      <h:form id="MyForm">
     <div class="row">    
-        <div class="col-xs-8 col-xs-offset-2">
-            <div class="input-group" id="searchbox" >
+        <div class="col-xs-12 col-md-offset-2">
+            <div class="input-group" >
+                
                 <h:selectOneMenu value="#{bookingDetailsSearchBean.optionSelected}">
                 <f:selectItem itemValue="Booking Number" itemLabel="Booking Number" />
                 <f:selectItem itemValue="Booking Type" itemLabel="Booking Type" />
                 <f:selectItem itemValue="Booking Name" itemLabel="Booking Name" />
                 </h:selectOneMenu>
-                <h:inputText value="#{bookingDetailsSearchBean.searchKeyword}"  binding="#{searchKeyword}" required="true" requiredMessage="Please enter the search keyword!" pt:placeholder="Search..."></h:inputText>
                 
-                <h:commandButton class="btn btn-default" id="btnsearch" value ="SEARCH" action="#{bookingDetailsSearchBean.searchBooking()}"></h:commandButton>
+                <h:inputText  size="60" class="form-control" value="#{bookingDetailsSearchBean.searchKeyword}"  binding="#{searchKeyword}" styleClass="apply" id="searchbox" required="true" requiredMessage="Please enter the search keyword!" pt:placeholder="  Search Booking Details..."></h:inputText>
+                
+                <h:commandButton  id="btnsearch" value ="SEARCH" action="#{bookingDetailsSearchBean.searchBooking()}"></h:commandButton>
                 
             </div>
         </div>
