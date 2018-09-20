@@ -29,7 +29,7 @@
           <li><a class="page-scroll" href="faces/index.xhtml">Home</a></li>
           <li><a class="page-scroll" href="#Destinations">Destinations</a></li>
           <li><a class="page-scroll" href="#Activities">Activities</a></li>
-          <li><a class="page-scroll active" href="#Bookings">Bookings</a></li>
+          <li><a class="page-scroll active" href="faces/booking.xhtml">Bookings</a></li>
           <li><a class="page-scroll" href="#Offers">Offers</a></li>
           <li><a class="page-scroll" href="#Login">Log In</a></li>
           </ul>
@@ -42,12 +42,23 @@
             <h1>BOOKING DETAILS</h1>
             <br></br>
             <ul> 
+                
                 <li>Booking Number: #{detailsBean.booking.bookingNo}</li> 
                 <li>Booking Name: #{detailsBean.booking.bookingName}</li> 
                 <li>Booking Type: #{detailsBean.booking.bookingType}</li> 
+                <li>Booking Date: #{detailsBean.booking.bookingDate}</li>
+                <h2>User Details</h2>
+                <li>User Name: #{detailsBean.booking.userId.userName}</li>
+                <li>User Address: #{detailsBean.booking.userId.address}</li> 
+                <li>User Email: #{detailsBean.booking.userId.email}</li>
+                <h2>Resort Details</h2>
+                <li>Resort Name: #{detailsBean.booking.resortId.resortName}</li> 
+                <li>Resort Address: #{detailsBean.booking.resortId.resortAddress}</li> 
+                <li>Resort City: #{detailsBean.booking.resortId.resortCity}</li> 
+                <li>Resort Landscape: #{detailsBean.booking.resortId.resortLandscape}</li> 
         </ul> 
-        <!-- Link back to the index page --> 
-        <p><h:link value="Return to HomePage" outcome="index"/> </p>
+       
+        <p><h:link value="Return to Bookings Page" outcome="booking"/> </p>
         </div>
     </h:body>
 

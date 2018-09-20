@@ -7,12 +7,14 @@ package oceania.controllers;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.el.ELContext;
 import javax.inject.Named;
 import javax.enterprise.context.RequestScoped;
 import javax.faces.context.FacesContext;
 import oceania.entities.Booking;
+import oceania.entities.Users;
 import oceania.search.BookingDetailsSearch;
 
 /**
@@ -28,24 +30,26 @@ public class DetailsBean {
     
     private int bookingNo;
     private Booking booking;
+    private Users users;
     
     public DetailsBean() {
         bookingNo=Integer.valueOf(FacesContext.getCurrentInstance()
                 .getExternalContext()
                 .getRequestParameterMap()
                 .get("bookingNo"));
-        booking = getBookingDetails(bookingNo);
     }
-    
-    public Booking getBookingDetails(int bookingNo) {
+    @PostConstruct
+    public void getBookingDetails() {
       
         try{
+            
             booking= bookingDetailsSearch.bookingDetails(bookingNo);
+            
             }
         catch (Exception ex) {
                  Logger.getLogger(BookingDetailsSearchBean.class.getName()).log(Level.SEVERE, null, ex);
              }
-        return booking; 
+         
     }           
     
     public int getBookingNo() {

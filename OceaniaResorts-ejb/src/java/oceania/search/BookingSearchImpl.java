@@ -53,15 +53,17 @@ public class BookingSearchImpl implements BookingDetailsSearch {
 
     @Override
     public Booking bookingDetails(int BookingNo) throws Exception {
-       //TypedQuery query =entityManager.createNamedQuery("Booking.findAll",Booking.class);
+       //TypedQuery<Booking> query =entityManager.createNamedQuery("Booking.findAll",Booking.class);
        //query.setParameter("bookingNo", BookingNo);
        //return query.getSingleResult();
-        Booking result;
-        TypedQuery<Booking> query =entityManager.createNamedQuery("Booking.findByBookingNo",Booking.class);
-        query.setParameter("bookingNo", BookingNo);
-        result= query.getSingleResult();
-        //Booking booking = entityManager.find(Booking.class, BookingNo);
-        return result;
+       // Booking result;
+        //TypedQuery<Booking> query =entityManager.createNamedQuery("SELECT b FROM Booking b WHERE b.bookingNo = :BookingNo",Booking.class);
+        //query.setParameter("bookingNo", BookingNo);
+        //return query.getSingleResult();
+        //result= query.getSingleResult();
+       Booking booking = entityManager.find(Booking.class, BookingNo);
+       return booking;
+        
     }
  
     
