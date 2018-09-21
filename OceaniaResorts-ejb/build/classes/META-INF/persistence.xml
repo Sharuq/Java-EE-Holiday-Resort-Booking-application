@@ -3,6 +3,7 @@
   <persistence-unit name="OceaniaResorts-ejbPU" transaction-type="JTA">
     <jta-data-source>jdbc/OceaniaResorts</jta-data-source>
     <class>oceania.entities.Booking</class>
+    <class>oceania.entities.Bookingtype</class>
     <class>oceania.entities.Resort</class>
     <class>oceania.entities.Users</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>

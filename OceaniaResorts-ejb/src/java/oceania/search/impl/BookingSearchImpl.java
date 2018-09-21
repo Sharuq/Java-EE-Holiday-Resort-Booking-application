@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package oceania.search;
+package oceania.search.impl;
 
 import java.util.List;
 import javax.ejb.Stateless;
@@ -12,6 +12,8 @@ import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 import oceania.entities.Booking;
 import javax.persistence.TypedQuery;
+import oceania.entities.Bookingtype;
+import oceania.search.BookingDetailsSearch;
 
 /**
  *
@@ -30,13 +32,7 @@ public class BookingSearchImpl implements BookingDetailsSearch {
        return query.getResultList();
     }
 
-    @Override
-    public List<Booking> searchByBookingType(String BookingType) throws Exception {
-       Query query =entityManager.createNamedQuery("Booking.findByBookingType");
-        query.setParameter("bookingType", BookingType);
-       return query.getResultList();
-    }
-
+   
     @Override
     public List<Booking> searchByBookingName(String BookingName) throws Exception {
        
@@ -53,18 +49,22 @@ public class BookingSearchImpl implements BookingDetailsSearch {
 
     @Override
     public Booking bookingDetails(int BookingNo) throws Exception {
-       //TypedQuery<Booking> query =entityManager.createNamedQuery("Booking.findAll",Booking.class);
-       //query.setParameter("bookingNo", BookingNo);
-       //return query.getSingleResult();
-       // Booking result;
-        //TypedQuery<Booking> query =entityManager.createNamedQuery("SELECT b FROM Booking b WHERE b.bookingNo = :BookingNo",Booking.class);
-        //query.setParameter("bookingNo", BookingNo);
-        //return query.getSingleResult();
-        //result= query.getSingleResult();
-       Booking booking = entityManager.find(Booking.class, BookingNo);
-       return booking;
+      
+        TypedQuery<Booking> query =entityManager.createNamedQuery("Booking.findByBookingNo",Booking.class);
+        query.setParameter("bookingNo", BookingNo);
+        return query.getSingleResult();
         
     }
+
+    @Override
+    public List<Booking> searchByBookingType(int typeId) throws Exception {
+        System.out.println(typeId);
+     Query query =entityManager.createNamedQuery("Booking.findByBookingTypeId");
+        query.setParameter("bookingTypeid",typeId);
+       return query.getResultList();
+    }
+
+   
  
     
 }

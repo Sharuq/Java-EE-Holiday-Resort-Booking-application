@@ -10,6 +10,7 @@ import java.util.List;
 import javax.ejb.CreateException;
 import javax.ejb.Remote;
 import oceania.entities.Booking;
+import oceania.entities.Bookingtype;
 /**
  *
  * @author mdsha
@@ -23,9 +24,12 @@ public interface BookingDetailsSearch {
     
     public List<Booking> searchByBookingNo(int BookingID) throws Exception;
     
-    public List<Booking> searchByBookingType(String BookingType) throws Exception;
+    public List<Booking> searchByBookingType(int typeId) throws Exception;
     
     public List<Booking> searchByBookingName(String BookingName) throws Exception;
+    
+   
+    
     
     
 }

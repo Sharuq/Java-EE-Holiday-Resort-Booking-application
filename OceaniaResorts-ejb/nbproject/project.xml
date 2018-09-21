@@ -5,8 +5,8 @@
         <data xmlns="http://www.netbeans.org/ns/j2ee-ejbjarproject/3">
             <name>OceaniaResorts-ejb</name>
             <minimum-ant-version>1.6.5</minimum-ant-version>
-            <included-library dirs="200">reference.OceaniaResorts-common.jar</included-library>
             <included-library dirs="200">libs.eclipselink.classpath</included-library>
+            <included-library dirs="200">reference.OceaniaResorts-common.jar</included-library>
             <included-library dirs="200">libs.javaee-endorsed-api-7.0.classpath</included-library>
             <included-library dirs="200">libs.javaee-api-7.0.classpath</included-library>
             <included-library dirs="200">libs.eclipselinkmodelgen.classpath</included-library>

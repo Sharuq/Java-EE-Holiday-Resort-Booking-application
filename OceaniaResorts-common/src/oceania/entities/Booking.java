@@ -20,11 +20,13 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  *
- * @author sharuq
+ * @author mdsha
  */
 @Entity
 @Table(catalog = "", schema = "OCEANIARESORTS")
@@ -33,7 +35,7 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Booking.findAll", query = "SELECT b FROM Booking b")
     , @NamedQuery(name = "Booking.findByBookingNo", query = "SELECT b FROM Booking b WHERE b.bookingNo = :bookingNo")
     , @NamedQuery(name = "Booking.findByBookingName", query = "SELECT b FROM Booking b WHERE b.bookingName = :bookingName")
-    , @NamedQuery(name = "Booking.findByBookingType", query = "SELECT b FROM Booking b WHERE b.bookingType = :bookingType")
+    , @NamedQuery(name = "Booking.findByBookingTypeId", query = "SELECT b FROM Booking b WHERE b.bookingTypeid.typeId = :bookingTypeid")
     , @NamedQuery(name = "Booking.findByBookingDate", query = "SELECT b FROM Booking b WHERE b.bookingDate = :bookingDate")})
 public class Booking implements Serializable {
 
@@ -44,15 +46,18 @@ public class Booking implements Serializable {
     @Column(name = "BOOKING_NO", nullable = false)
     private Integer bookingNo;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 70)
     @Column(name = "BOOKING_NAME", nullable = false, length = 70)
     private String bookingName;
     @Basic(optional = false)
-    @Column(name = "BOOKING_TYPE", nullable = false, length = 30)
-    private String bookingType;
-    @Basic(optional = false)
+    @NotNull
     @Column(name = "BOOKING_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date bookingDate;
+    @JoinColumn(name = "BOOKING_TYPEID", referencedColumnName = "TYPE_ID", nullable = false)
+    @ManyToOne(optional = false)
+    private Bookingtype bookingTypeid;
     @JoinColumn(name = "RESORT_ID", referencedColumnName = "RESORT_ID", nullable = false)
     @ManyToOne(optional = false)
     private Resort resortId;
@@ -67,10 +72,9 @@ public class Booking implements Serializable {
         this.bookingNo = bookingNo;
     }
 
-    public Booking(Integer bookingNo, String bookingName, String bookingType, Date bookingDate) {
+    public Booking(Integer bookingNo, String bookingName, Date bookingDate) {
         this.bookingNo = bookingNo;
         this.bookingName = bookingName;
-        this.bookingType = bookingType;
         this.bookingDate = bookingDate;
     }
 
@@ -90,20 +94,20 @@ public class Booking implements Serializable {
         this.bookingName = bookingName;
     }
 
-    public String getBookingType() {
-        return bookingType;
-    }
-
-    public void setBookingType(String bookingType) {
-        this.bookingType = bookingType;
-    }
-
     public Date getBookingDate() {
         return bookingDate;
     }
 
     public void setBookingDate(Date bookingDate) {
         this.bookingDate = bookingDate;
+    }
+
+    public Bookingtype getBookingTypeid() {
+        return bookingTypeid;
+    }
+
+    public void setBookingTypeid(Bookingtype bookingTypeid) {
+        this.bookingTypeid = bookingTypeid;
     }
 
     public Resort getResortId() {

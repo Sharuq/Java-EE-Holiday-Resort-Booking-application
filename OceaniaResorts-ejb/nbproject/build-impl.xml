@@ -826,30 +826,30 @@ exists or setup the property manually. For example like this:
     </target>
     <target depends="compile,-library-inclusion-in-archive-weblogic,-library-inclusion-in-archive-by-user" name="library-inclusion-in-archive"/>
     <target if="is.jars.in.ejbjar" name="-library-inclusion-in-archive-by-user">
-        <copyfiles files="${reference.OceaniaResorts-common.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${libs.eclipselink.classpath}" todir="${build.classes.dir}"/>
+        <copyfiles files="${reference.OceaniaResorts-common.jar}" todir="${build.classes.dir}"/>
         <copyfiles files="${libs.javaee-endorsed-api-7.0.classpath}" todir="${build.classes.dir}"/>
         <copyfiles files="${libs.javaee-api-7.0.classpath}" todir="${build.classes.dir}"/>
         <copyfiles files="${libs.eclipselinkmodelgen.classpath}" todir="${build.classes.dir}"/>
     </target>
     <target if="is.server.weblogic" name="-library-inclusion-in-archive-weblogic">
-        <basename file="${reference.OceaniaResorts-common.jar}" property="manifest.reference.OceaniaResorts-common.jar"/>
         <basename file="${libs.eclipselink.classpath}" property="manifest.libs.eclipselink.classpath"/>
+        <basename file="${reference.OceaniaResorts-common.jar}" property="manifest.reference.OceaniaResorts-common.jar"/>
         <basename file="${libs.javaee-endorsed-api-7.0.classpath}" property="manifest.libs.javaee-endorsed-api-7.0.classpath"/>
         <basename file="${libs.javaee-api-7.0.classpath}" property="manifest.libs.javaee-api-7.0.classpath"/>
         <basename file="${libs.eclipselinkmodelgen.classpath}" property="manifest.libs.eclipselinkmodelgen.classpath"/>
         <manifest file="${build.ear.classes.dir}/META-INF/MANIFEST.MF" mode="update">
             <attribute name="Extension-List" value="jar-1 jar-2 jar-3 jar-4 jar-5 "/>
-            <attribute name="jar-1-Extension-Name" value="${manifest.reference.OceaniaResorts-common.jar}"/>
-            <attribute name="jar-2-Extension-Name" value="${manifest.libs.eclipselink.classpath}"/>
+            <attribute name="jar-1-Extension-Name" value="${manifest.libs.eclipselink.classpath}"/>
+            <attribute name="jar-2-Extension-Name" value="${manifest.reference.OceaniaResorts-common.jar}"/>
             <attribute name="jar-3-Extension-Name" value="${manifest.libs.javaee-endorsed-api-7.0.classpath}"/>
             <attribute name="jar-4-Extension-Name" value="${manifest.libs.javaee-api-7.0.classpath}"/>
             <attribute name="jar-5-Extension-Name" value="${manifest.libs.eclipselinkmodelgen.classpath}"/>
         </manifest>
     </target>
     <target depends="compile" name="library-inclusion-in-manifest">
-        <copyfiles files="${reference.OceaniaResorts-common.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.eclipselink.classpath}" todir="${dist.ear.dir}/lib"/>
+        <copyfiles files="${reference.OceaniaResorts-common.jar}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.javaee-endorsed-api-7.0.classpath}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.javaee-api-7.0.classpath}" todir="${dist.ear.dir}/lib"/>
         <copyfiles files="${libs.eclipselinkmodelgen.classpath}" todir="${dist.ear.dir}/lib"/>
