@@ -7,6 +7,7 @@ package oceania.controllers;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -72,29 +73,29 @@ public class BookingDetailsSearchBean implements Serializable {
      
      public void searchBooking() {
         
-         try {
-        // searchResultList = new ArrayList<>();
-        System.out.println(selectedType);
-         if(optionSelected.equals("Booking Number"))
-         {
-             searchResultList =  bookingDetailsSearch.searchByBookingNo(Integer.parseInt(searchKeyword));
+        try {
              
-         }
-         else if(optionSelected.equals("Booking Type"))
-         {
-             searchResultList =  bookingDetailsSearch.searchByBookingType(Integer.parseInt(selectedType));
-             
-         }
+        if(optionSelected.equals("Booking Number"))
+        {
+           searchResultList =  bookingDetailsSearch.searchByBookingNo(Integer.parseInt(searchKeyword));
+        }    
+            
          
-         else 
+        else if(optionSelected.equals("Booking Type"))
+            {
+             searchResultList =  bookingDetailsSearch.searchByBookingType(Integer.parseInt(selectedType));
+            }
+         
+        else 
          {
              searchResultList =  bookingDetailsSearch.searchByBookingName(searchKeyword);
              
          }
          }
-         catch (Exception ex) {
+        catch (Exception ex) {
                  Logger.getLogger(BookingDetailsSearchBean.class.getName()).log(Level.SEVERE, null, ex);
-             }
+            }
+         
      }
 
     public List<Bookingtype> getBookingTypeList() {

@@ -13,7 +13,8 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/yeti/bootstrap.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-
+        <h:outputScript  name="js/myscript.js"></h:outputScript>   
+        
     </h:head>
     <h:body>
 
@@ -42,21 +43,24 @@
    
      <h1>Search Booking Details</h1>
      <br></br>
-     <h:form id="MyForm">
+     <h:form id="MyForm" prependId="false">
     <div class="row">    
         <div class="col-xs-12 col-md-offset-2 ">
-            <div class="input-group" >
+            <div class="input-group">
                 
-                <h:selectOneMenu value="#{bookingDetailsSearchBean.optionSelected}">
+                <h:selectOneMenu value="#{bookingDetailsSearchBean.optionSelected}" id="options">
                 <f:selectItem itemValue="Booking Number" itemLabel="Booking Number" />
-                <f:selectItem itemValue="Booking Type" itemLabel="Booking Type" />
+                <f:selectItem itemValue="Booking Type" itemLabel="Booking Type"  />
                 <f:selectItem itemValue="Booking Name" itemLabel="Booking Name" />
                 </h:selectOneMenu>
-                <h:selectOneMenu value="#{bookingDetailsSearchBean.selectedType}">
+               
+           
+                <h:selectOneMenu  value="#{bookingDetailsSearchBean.selectedType}" id="typeoptions" style="display: none;">
                     <f:selectItems value="#{bookingDetailsSearchBean.bookingTypeMap}"></f:selectItems>
                 </h:selectOneMenu>
-                
-                <h:inputText  size="60" class="form-control" value="#{bookingDetailsSearchBean.searchKeyword}"  binding="#{searchKeyword}" styleClass="apply" id="searchbox" required="true" requiredMessage="Please enter the search keyword!" pt:placeholder="  Search Booking Details..."></h:inputText>
+               
+               
+                <h:inputText  size="60" class="form-control" value="#{bookingDetailsSearchBean.searchKeyword}"  required="true" requiredMessage="Please Enter Search Keyword" binding="#{searchKeyword}" styleClass="apply" id="searchbox"  pt:placeholder="  Search Booking Details..."></h:inputText>
                 
                 <h:commandButton  id="btnsearch" value ="SEARCH" action="#{bookingDetailsSearchBean.searchBooking()}"></h:commandButton>
                 
