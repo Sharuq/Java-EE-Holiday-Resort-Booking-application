@@ -1,4 +1,5 @@
 .hotel_booking_table {
+    
   background: #04091e;
   -webkit-box-align: center;
   -ms-flex-align: center;
@@ -132,4 +133,44 @@
     line-height: 20px;
     padding-top: 10px;
     padding-bottom: 10px;}
+}
+
+#mybox{
+    position: absolute;
+        top:17%;
+        left: 60%;
+        margin-top:50px;
+        width: 400px;
+        height: 500px;
+        background: linear-gradient(to right, rgba(242,246,248,1) 0%, rgba(216,225,231,0.97) 16%, rgba(181,198,208,0.91) 51%, rgba(224,239,249,0.83) 100%);z-index: 999999;
+        
+        border-radius: 6px;
+        z-index: 9999;
+        
+}
+@media (max-width: 767px) {
+    #mybox{
+    position: absolute;
+        top:5%;
+        margin-top:25px;
+        margin-left:400px;
+        width: 200px;
+        height: 250px;
+        background: linear-gradient(to right, rgba(242,246,248,1) 0%, rgba(216,225,231,0.97) 16%, rgba(181,198,208,0.91) 51%, rgba(224,239,249,0.83) 100%);z-index: 999999;
+         z-index: 9999;
+        border-radius: 3px;
+    }
+        #mybox h1{
+    font-weight: 400;
+    }
+    #mybox h3{
+    font-weight: 250;
+    }
+
+}
+#mybox h1{
+    font-weight: 800;
+}
+#mybox h3{
+    font-weight: 500;
 }
