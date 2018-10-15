@@ -18,8 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -33,7 +31,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Bookingtype.findAll", query = "SELECT b FROM Bookingtype b")
     , @NamedQuery(name = "Bookingtype.findByTypeId", query = "SELECT b FROM Bookingtype b WHERE b.typeId = :typeId")
-        , @NamedQuery(name = "Bookingtype.findAllTypeName", query = "SELECT b.typeName FROM Bookingtype b")
+    , @NamedQuery(name = "Bookingtype.findAllTypeName", query = "SELECT b.typeName FROM Bookingtype b")
     , @NamedQuery(name = "Bookingtype.findByTypeName", query = "SELECT b FROM Bookingtype b WHERE b.typeName = :typeName")})
 public class Bookingtype implements Serializable {
 
@@ -44,8 +42,6 @@ public class Bookingtype implements Serializable {
     @Column(name = "TYPE_ID", nullable = false)
     private Integer typeId;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 70)
     @Column(name = "TYPE_NAME", nullable = false, length = 70)
     private String typeName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bookingTypeid")
@@ -110,7 +106,7 @@ public class Bookingtype implements Serializable {
 
     @Override
     public String toString() {
-        return "oceania.entities.Bookingtype[ typeId=" + typeId + " ]";
+        return "oceania.Bookingtype[ typeId=" + typeId + " ]";
     }
     
 }

@@ -21,8 +21,9 @@ import oceania.search.BookingDetailsSearch;
  */
 @Stateless
 public class BookingSearchImpl implements BookingDetailsSearch {
-
-    @PersistenceContext
+     
+    @PersistenceContext(unitName = "OceaniaResorts-ejbPU")
+    
     private EntityManager entityManager;
 
     @Override

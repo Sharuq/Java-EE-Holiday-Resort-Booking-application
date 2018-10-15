@@ -20,8 +20,6 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -46,18 +44,18 @@ public class Booking implements Serializable {
     @Column(name = "BOOKING_NO", nullable = false)
     private Integer bookingNo;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 70)
     @Column(name = "BOOKING_NAME", nullable = false, length = 70)
     private String bookingName;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "BOOKING_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date bookingDate;
     @JoinColumn(name = "BOOKING_TYPEID", referencedColumnName = "TYPE_ID", nullable = false)
     @ManyToOne(optional = false)
     private Bookingtype bookingTypeid;
+    @JoinColumn(name = "PACKAGE_ID", referencedColumnName = "PACKAGE_ID", nullable = false)
+    @ManyToOne(optional = false)
+    private Package packageId;
     @JoinColumn(name = "RESORT_ID", referencedColumnName = "RESORT_ID", nullable = false)
     @ManyToOne(optional = false)
     private Resort resortId;
@@ -110,6 +108,14 @@ public class Booking implements Serializable {
         this.bookingTypeid = bookingTypeid;
     }
 
+    public Package getPackageId() {
+        return packageId;
+    }
+
+    public void setPackageId(Package packageId) {
+        this.packageId = packageId;
+    }
+
     public Resort getResortId() {
         return resortId;
     }
@@ -148,7 +154,7 @@ public class Booking implements Serializable {
 
     @Override
     public String toString() {
-        return "oceania.entities.Booking[ bookingNo=" + bookingNo + " ]";
+        return "oceania.Booking[ bookingNo=" + bookingNo + " ]";
     }
     
 }

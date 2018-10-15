@@ -6,6 +6,7 @@
     <class>oceania.entities.Bookingtype</class>
     <class>oceania.entities.Resort</class>
     <class>oceania.entities.Users</class>
+    <class>oceania.entities.Package</class>
     <exclude-unlisted-classes>true</exclude-unlisted-classes>
     <properties>
       <property name="javax.persistence.schema-generation.database.action" value="create"/>

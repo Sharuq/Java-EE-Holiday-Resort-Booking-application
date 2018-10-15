@@ -18,8 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -36,7 +34,9 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Users.findByUserRole", query = "SELECT u FROM Users u WHERE u.userRole = :userRole")
     , @NamedQuery(name = "Users.findByUserName", query = "SELECT u FROM Users u WHERE u.userName = :userName")
     , @NamedQuery(name = "Users.findByAddress", query = "SELECT u FROM Users u WHERE u.address = :address")
-    , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")})
+    , @NamedQuery(name = "Users.findByEmail", query = "SELECT u FROM Users u WHERE u.email = :email")
+    , @NamedQuery(name = "Users.findByPassword", query = "SELECT u FROM Users u WHERE u.password = :password")
+    , @NamedQuery(name = "Users.findByUserNameLast", query = "SELECT u FROM Users u WHERE u.userNameLast = :userNameLast")})
 public class Users implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -46,25 +46,21 @@ public class Users implements Serializable {
     @Column(name = "USER_ID", nullable = false)
     private Integer userId;
     @Basic(optional = false)
-    @NotNull
     @Column(name = "USER_ROLE", nullable = false)
     private Character userRole;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 70)
     @Column(name = "USER_NAME", nullable = false, length = 70)
     private String userName;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 130)
     @Column(nullable = false, length = 130)
     private String address;
-    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 150)
     @Column(nullable = false, length = 150)
     private String email;
+    @Column(length = 120)
+    private String password;
+    @Column(name = "USER_NAME_LAST", length = 50)
+    private String userNameLast;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
     private Collection<Booking> bookingCollection;
 
@@ -123,6 +119,22 @@ public class Users implements Serializable {
         this.email = email;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserNameLast() {
+        return userNameLast;
+    }
+
+    public void setUserNameLast(String userNameLast) {
+        this.userNameLast = userNameLast;
+    }
+
     @XmlTransient
     public Collection<Booking> getBookingCollection() {
         return bookingCollection;
@@ -154,7 +166,7 @@ public class Users implements Serializable {
 
     @Override
     public String toString() {
-        return "oceania.entities.Users[ userId=" + userId + " ]";
+        return "oceania.Users[ userId=" + userId + " ]";
     }
     
 }

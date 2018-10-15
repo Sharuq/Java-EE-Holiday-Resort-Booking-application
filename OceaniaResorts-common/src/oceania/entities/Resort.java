@@ -18,8 +18,6 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -46,23 +44,15 @@ public class Resort implements Serializable {
     @Column(name = "RESORT_ID", nullable = false)
     private Integer resortId;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 70)
     @Column(name = "RESORT_NAME", nullable = false, length = 70)
     private String resortName;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 130)
     @Column(name = "RESORT_ADDRESS", nullable = false, length = 130)
     private String resortAddress;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 150)
     @Column(name = "RESORT_CITY", nullable = false, length = 150)
     private String resortCity;
     @Basic(optional = false)
-    @NotNull
-    @Size(min = 1, max = 150)
     @Column(name = "RESORT_LANDSCAPE", nullable = false, length = 150)
     private String resortLandscape;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "resortId")
@@ -154,7 +144,7 @@ public class Resort implements Serializable {
 
     @Override
     public String toString() {
-        return "oceania.entities.Resort[ resortId=" + resortId + " ]";
+        return "oceania.Resort[ resortId=" + resortId + " ]";
     }
     
 }
