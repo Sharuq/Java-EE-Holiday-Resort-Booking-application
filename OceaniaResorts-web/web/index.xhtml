@@ -28,33 +28,17 @@
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
          <li><a class="page-scroll" href="faces/index.xhtml">Home</a></li>
-          <li><a class="page-scroll" href="#Destinations">Resorts</a></li>
-          <li><a class="page-scroll" href="#Activities">Packages</a></li>
-          <li><a class="page-scroll active" href="faces/booking.xhtml">Bookings</a></li>
-          <li><a class="page-scroll" href="faces/login.xhtml">Log In</a></li>
-          <li><a class="page-scroll" href="#Offers">Register</a></li>
+         <li><h:outputLink value="admin/index.xhtml"> Admin Login</h:outputLink></li>
+         <li><h:outputLink value="public/index.xhtml">Public Login</h:outputLink></li>
+         <li><a class="page-scroll" href="#Offers">Register</a></li>
           </ul>
         </div>
       </div>
     </nav>
 
-
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
      
-      <div class="container" id="mybox">
-          <h1>Away from monotonous life</h1>
-          <h3>Login to your profile !!</h3>
-          <br></br>
-          <label for="uname"><b>Email:</b></label>
-          <input type='text' class="form-control" placeholder="Email" required="true"/>
-                  <br></br>
-          <label for="uname"><b>Password:</b></label>
-          <input type='password' class="form-control" placeholder="Password" required="true"/>
-          <br></br>
-           <button type="sumbit" class="btn btn-default btn-primary btn-block">Login</button> 
-           <br></br>
-           <h4>Not A Member Yet?&nbsp;<button type="Search" class="btn btn-default btn-info btn-xs">Register Here!</button></h4>
-      </div>
+     
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

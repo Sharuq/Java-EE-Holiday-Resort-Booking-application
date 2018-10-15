@@ -22,16 +22,16 @@
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header page-scroll">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
-          <a class="navbar-brand page-scroll" href="faces/index.xhtml"><img src="resources/assets/logo.png" width="80" height="40" alt="image missing" /></a> </div>
+          <a class="navbar-brand page-scroll" href="index.xhtml"><img src="../resources/assets/logo.png" width="80" height="40" alt="image missing" /></a> </div>
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-          <li><a class="page-scroll" href="faces/index.xhtml">Home</a></li>
+          <li><a class="page-scroll" href="index.xhtml">Home</a></li>
           <li><a class="page-scroll" href="#Destinations">Resorts</a></li>
           <li><a class="page-scroll" href="#Activities">Packages</a></li>
-          <li><a class="page-scroll active" href="faces/booking.xhtml">Bookings</a></li>
-          <li><a class="page-scroll" href="faces/login.xhtml">Log In</a></li>
-          <li><a class="page-scroll" href="#Offers">Register</a></li>
+          <li><a class="page-scroll active" href="booking.xhtml">Bookings</a></li>
+          <li> <h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Logout" action="#{logoutController.logout()}"> </h:commandLink></h:form> </li> 
+          
           </ul>
         </div>
       </div>

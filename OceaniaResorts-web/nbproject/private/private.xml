@@ -2,6 +2,18 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/public/index.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/admin/index.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/WEB-INF/web.xml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/public/bookingDetails.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/index.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/login.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/public/booking.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/BookingDetailsSearchBean.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/DetailsBean.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/error.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/LogoutController.java</file>
+        </group>
     </open-files>
 </project-private>
