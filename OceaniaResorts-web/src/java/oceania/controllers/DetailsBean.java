@@ -31,6 +31,10 @@ public class DetailsBean {
     private int bookingNo;
     private Booking booking;
     private Users users;
+    private int price=0;
+    private int surcharge=0;
+    private float total=0;
+    
     
     public DetailsBean() {
         bookingNo=Integer.valueOf(FacesContext.getCurrentInstance()
@@ -44,6 +48,10 @@ public class DetailsBean {
         try{
             
             booking= bookingDetailsSearch.bookingDetails(bookingNo);
+            price=booking.getPackageId().getPackageCharge();
+            surcharge= booking.getResortId().getSurCharge();
+            total=(float)(price+((price/100)*surcharge));
+            
             
             }
         catch (Exception ex) {
@@ -51,6 +59,39 @@ public class DetailsBean {
              }
          
     }           
+    
+    
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
+    public int getPrice() {
+        return price;
+    }
+
+    public void setPrice(int price) {
+        this.price = price;
+    }
+
+    public int getSurcharge() {
+        return surcharge;
+    }
+
+    public void setSurcharge(int surcharge) {
+        this.surcharge = surcharge;
+    }
+
+    public float getTotal() {
+        return total;
+    }
+
+    public void setTotal(float total) {
+        this.total = total;
+    }
     
     public int getBookingNo() {
         return bookingNo;

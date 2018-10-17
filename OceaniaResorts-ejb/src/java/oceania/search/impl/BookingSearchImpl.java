@@ -59,7 +59,7 @@ public class BookingSearchImpl implements BookingDetailsSearch {
 
     @Override
     public List<Booking> searchByBookingType(int typeId) throws Exception {
-        System.out.println(typeId);
+      
      Query query =entityManager.createNamedQuery("Booking.findByBookingTypeId");
         query.setParameter("bookingTypeid",typeId);
        return query.getResultList();

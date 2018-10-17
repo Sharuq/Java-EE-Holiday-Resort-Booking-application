@@ -6,9 +6,7 @@
 package oceania.entities;
 
 import java.io.Serializable;
-import java.util.Collection;
 import javax.persistence.Basic;
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -16,10 +14,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -34,7 +32,8 @@ import javax.xml.bind.annotation.XmlTransient;
     , @NamedQuery(name = "Resort.findByResortName", query = "SELECT r FROM Resort r WHERE r.resortName = :resortName")
     , @NamedQuery(name = "Resort.findByResortAddress", query = "SELECT r FROM Resort r WHERE r.resortAddress = :resortAddress")
     , @NamedQuery(name = "Resort.findByResortCity", query = "SELECT r FROM Resort r WHERE r.resortCity = :resortCity")
-    , @NamedQuery(name = "Resort.findByResortLandscape", query = "SELECT r FROM Resort r WHERE r.resortLandscape = :resortLandscape")})
+    , @NamedQuery(name = "Resort.findByResortLandscape", query = "SELECT r FROM Resort r WHERE r.resortLandscape = :resortLandscape")
+    , @NamedQuery(name = "Resort.findBySurCharge", query = "SELECT r FROM Resort r WHERE r.surCharge = :surCharge")})
 public class Resort implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -44,19 +43,27 @@ public class Resort implements Serializable {
     @Column(name = "RESORT_ID", nullable = false)
     private Integer resortId;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 70)
     @Column(name = "RESORT_NAME", nullable = false, length = 70)
     private String resortName;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 130)
     @Column(name = "RESORT_ADDRESS", nullable = false, length = 130)
     private String resortAddress;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 150)
     @Column(name = "RESORT_CITY", nullable = false, length = 150)
     private String resortCity;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 150)
     @Column(name = "RESORT_LANDSCAPE", nullable = false, length = 150)
     private String resortLandscape;
-    @OneToMany(cascade = CascadeType.ALL, mappedBy = "resortId")
-    private Collection<Booking> bookingCollection;
+    @Column(name = "SUR_CHARGE")
+    private Integer surCharge;
 
     public Resort() {
     }
@@ -113,13 +120,12 @@ public class Resort implements Serializable {
         this.resortLandscape = resortLandscape;
     }
 
-    @XmlTransient
-    public Collection<Booking> getBookingCollection() {
-        return bookingCollection;
+    public Integer getSurCharge() {
+        return surCharge;
     }
 
-    public void setBookingCollection(Collection<Booking> bookingCollection) {
-        this.bookingCollection = bookingCollection;
+    public void setSurCharge(Integer surCharge) {
+        this.surCharge = surCharge;
     }
 
     @Override
@@ -144,7 +150,7 @@ public class Resort implements Serializable {
 
     @Override
     public String toString() {
-        return "oceania.Resort[ resortId=" + resortId + " ]";
+        return "oceania.entities.Resort[ resortId=" + resortId + " ]";
     }
     
 }

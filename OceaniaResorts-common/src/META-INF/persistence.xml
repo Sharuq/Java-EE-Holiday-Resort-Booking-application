@@ -5,8 +5,14 @@
     <class>oceania.entities.Booking</class>
     <class>oceania.entities.Users</class>
     <class>oceania.entities.Resort</class>
-    <class>oceania.entities.Package</class>
     <class>oceania.entities.Bookingtype</class>
+    <class>oceania.entites.Booking</class>
+    <class>oceania.entites.Users</class>
+    <class>oceania.entites.Bookingtype</class>
+    <class>oceania.entites.Resort</class>
+    <class>oceania.entites.Package</class>
+    <class>oceania.entites.Packages</class>
+    <class>oceania.entities.Packages</class>
     <properties>
       <property name="javax.persistence.jdbc.url" value="jdbc:derby://localhost:1527/OceaniaResorts"/>
       <property name="javax.persistence.jdbc.user" value="OceaniaResorts"/>

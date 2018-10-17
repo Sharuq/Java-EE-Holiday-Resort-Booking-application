@@ -18,6 +18,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -46,19 +48,29 @@ public class Users implements Serializable {
     @Column(name = "USER_ID", nullable = false)
     private Integer userId;
     @Basic(optional = false)
+    @NotNull
     @Column(name = "USER_ROLE", nullable = false)
     private Character userRole;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 70)
     @Column(name = "USER_NAME", nullable = false, length = 70)
     private String userName;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 130)
     @Column(nullable = false, length = 130)
     private String address;
+    // @Pattern(regexp="[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?", message="Invalid email")//if the field contains email address consider using this annotation to enforce field validation
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 150)
     @Column(nullable = false, length = 150)
     private String email;
+    @Size(max = 120)
     @Column(length = 120)
     private String password;
+    @Size(max = 50)
     @Column(name = "USER_NAME_LAST", length = 50)
     private String userNameLast;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "userId")
@@ -166,7 +178,7 @@ public class Users implements Serializable {
 
     @Override
     public String toString() {
-        return "oceania.Users[ userId=" + userId + " ]";
+        return "oceania.entities.Users[ userId=" + userId + " ]";
     }
     
 }

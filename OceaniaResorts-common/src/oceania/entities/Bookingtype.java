@@ -18,6 +18,8 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
 import javax.xml.bind.annotation.XmlTransient;
 
@@ -42,6 +44,8 @@ public class Bookingtype implements Serializable {
     @Column(name = "TYPE_ID", nullable = false)
     private Integer typeId;
     @Basic(optional = false)
+    @NotNull
+    @Size(min = 1, max = 70)
     @Column(name = "TYPE_NAME", nullable = false, length = 70)
     private String typeName;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "bookingTypeid")
@@ -106,7 +110,7 @@ public class Bookingtype implements Serializable {
 
     @Override
     public String toString() {
-        return "oceania.Bookingtype[ typeId=" + typeId + " ]";
+        return "oceania.entities.Bookingtype[ typeId=" + typeId + " ]";
     }
     
 }

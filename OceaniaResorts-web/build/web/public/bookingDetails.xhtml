@@ -29,7 +29,7 @@
           <li><a class="page-scroll" href="index.xhtml">Home</a></li>
           <li><a class="page-scroll" href="#Destinations">Resorts</a></li>
           <li><a class="page-scroll" href="#Activities">Packages</a></li>
-          <li><a class="page-scroll active" href="booking.xhtml">Bookings</a></li>
+          <li><a class="page-scroll active" href="searchBooking.xhtml">Bookings</a></li>
           <li> <h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Logout" action="#{logoutController.logout()}"> </h:commandLink></h:form> </li> 
           
           </ul>
@@ -47,18 +47,25 @@
                 <li>Booking Name: #{detailsBean.booking.bookingName}</li> 
                 <li>Booking Type: #{detailsBean.booking.bookingTypeid.typeName}</li> 
                 <li>Booking Date: #{detailsBean.booking.bookingDate}</li>
-                <h2>User Details</h2>
+                <h3>User Details</h3>
                 <li>User Name: #{detailsBean.booking.userId.userName}</li>
                 <li>User Address: #{detailsBean.booking.userId.address}</li> 
                 <li>User Email: #{detailsBean.booking.userId.email}</li>
-                <h2>Resort Details</h2>
+                <h3>Resort Details</h3>
                 <li>Resort Name: #{detailsBean.booking.resortId.resortName}</li> 
                 <li>Resort Address: #{detailsBean.booking.resortId.resortAddress}</li> 
                 <li>Resort City: #{detailsBean.booking.resortId.resortCity}</li> 
-                <li>Resort Landscape: #{detailsBean.booking.resortId.resortLandscape}</li> 
+                <li>Resort Landscape: #{detailsBean.booking.resortId.resortLandscape}</li>
+                <h3>Package Details</h3>
+                <li>Package Name: #{detailsBean.booking.packageId.packageName}</li>
+                <li>Package Description: #{detailsBean.booking.packageId.packageDescription}</li>
+                <h3>Payment Details</h3>
+                <li>Package Charge: A$ #{detailsBean.booking.packageId.packageCharge} </li>
+                <li>Resort Sur-charge: #{detailsBean.booking.resortId.surCharge} %</li>
+                <h4 style="font-weight: 600">Total Price: A$ #{detailsBean.total}</h4> 
         </ul> 
        
-        <p><h:link value="Return to Bookings Page" outcome="booking"/> </p>
+        <p><h:link value="Return to Bookings Page" outcome="searchBooking"/> </p>
         </div>
     </h:body>
 

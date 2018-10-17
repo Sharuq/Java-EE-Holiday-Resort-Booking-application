@@ -1,7 +1,10 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:h="http://xmlns.jcp.org/jsf/html">
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
     <h:head>
         <title>Oceania Resorts</title>
         <h:outputStylesheet  name="css/style1.css"></h:outputStylesheet>
@@ -28,8 +31,8 @@
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
          <li><a class="page-scroll" href="faces/index.xhtml">Home</a></li>
-         <li><h:outputLink value="admin/index.xhtml"> Admin Login</h:outputLink></li>
-         <li><h:outputLink value="public/index.xhtml">Public Login</h:outputLink></li>
+         
+         <li><h:outputLink value="public/index.xhtml">Log in</h:outputLink></li>
          <li><a class="page-scroll" href="#Offers">Register</a></li>
           </ul>
         </div>
@@ -38,7 +41,25 @@
 
   <div id="myCarousel" class="carousel slide" data-ride="carousel">
      
-     
+     <div class="container" id="mybox">
+           <h1>Away from monotonous life</h1>
+           
+           <h:form>
+               <h3> Choose Our Resorts</h3>
+               <h:selectOneMenu  value="#{indexController.selectedType1}" id="typeoptions1">
+                   <f:selectItems value="#{indexController.resortTypeMap}"></f:selectItems>
+                </h:selectOneMenu>
+               <br></br>
+               
+               <h3> Choose a Package</h3>
+               <h:selectOneMenu  value="#{indexController.selectedType2}" id="typeoptions2">
+                   <f:selectItems value="#{indexController.packageTypeMap}"></f:selectItems>
+                </h:selectOneMenu>
+               <br></br><br></br>
+                <h:commandButton  id="btnsearch" value ="Book"  class="text-center" styleClass="btn btn-primary" action="#{resortSearchBean.searchResort()}"></h:commandButton>
+                
+           </h:form>
+     </div>
     <!-- Indicators -->
     <ol class="carousel-indicators">
       <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
@@ -73,9 +94,26 @@
       <span class="sr-only">Next</span>
     </a>
   </div>
- 
+ <div class="footer">
+   
+  <h2>About Us</h2>
+  <div class="col-md-5">
+  <p>Oeania Resorts, Inc. was established over a decade ago on the island of Hobart with the concept that your travel agent should be where you are going, not where you are coming from. We were one of the pioneers of selling Australia from Australia, instead of from some large Mainland city. </p>
+  </div>
+   <h4>Resorts at astonishing landscapes</h4>
+  <div class="col-md-6">
      
+      <ul>
+          <li>Hill Station</li>
+          <li>Beach View</li>
+          <li>City View</li>
+      </ul>
 
+  <h:outputLink value="admin/index.xhtml" class="btn btn-default btn-info"> Admin Login</h:outputLink>
+
+</div> 
+</div>
+    
     
     </h:body>
     

@@ -30,7 +30,7 @@
           <li><a class="page-scroll" href="index.xhtml">Home</a></li>
           <li><a class="page-scroll" href="#Destinations">Resorts</a></li>
           <li><a class="page-scroll" href="#Activities">Packages</a></li>
-          <li><a class="page-scroll active" href="booking.xhtml">Bookings</a></li>
+          <li><a class="page-scroll active" href="searchBooking.xhtml">Bookings</a></li>
           <li> <h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Logout" action="#{logoutController.logout()}"> </h:commandLink></h:form> </li> 
           
           </ul>
@@ -58,7 +58,7 @@
                 <h:selectOneMenu  value="#{bookingDetailsSearchBean.selectedType}" id="typeoptions" style="display: none;">
                     <f:selectItems value="#{bookingDetailsSearchBean.bookingTypeMap}"></f:selectItems>
                 </h:selectOneMenu>
-               
+              
                
                 <h:inputText  size="60" class="form-control" value="#{bookingDetailsSearchBean.searchKeyword}"  required="true" requiredMessage="Please Enter Search Keyword" binding="#{searchKeyword}" styleClass="apply" id="searchbox"  pt:placeholder="  Search Booking Details..."></h:inputText>
                 
@@ -69,6 +69,8 @@
     </div> 
       </h:form> 
      <br></br>
+        <h:outputText style="font-weight:bold" value="No Records Found for the input !" rendered="#{empty bookingDetailsSearchBean.searchResultList}" />
+                     
        <table class="table table-hover table-bordered table-striped ">
                     <!-- For each booking in search result List... --> 
                     <thead style="background-color:#d5d5d5;">
@@ -78,8 +80,7 @@
                               <th scope="col">View Booking Details</th>
                             </tr>
                        </thead>
-                    <ui:repeat id="Myrepeat" value="#{bookingDetailsSearchBean.searchResultList}" var="searchResult" varStatus="status"> 
-                        
+                  <ui:repeat id="Myrepeat" value="#{bookingDetailsSearchBean.searchResultList}" var="searchResult" varStatus="status"> 
                         <tr> 
                             <td>
                                 <h:outputText value="#{searchResult.bookingNo}" id="bookingNo" /> 

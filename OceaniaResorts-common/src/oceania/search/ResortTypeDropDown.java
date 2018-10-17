@@ -7,15 +7,15 @@ package oceania.search;
 
 import java.util.List;
 import javax.ejb.Remote;
-import oceania.entities.Bookingtype;
+import oceania.entities.Resort;
 
 /**
  *
  * @author mdsha
  */
 @Remote
-public interface BookingTypeDropdown {
+public interface ResortTypeDropDown {
+          public List<Resort> getAllResortType() throws Exception;
+          public Resort resortDetails(int ResortID) throws Exception;
     
-     public List<Bookingtype> getAllBookingType() throws Exception;
-     public List<String> getAllBookingTypeName() throws Exception;
 }
