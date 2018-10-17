@@ -27,36 +27,47 @@ import oceania.search.BookingTypeDropdown;
 public class BookingBean implements Serializable {
     private String bookingDate;
     private String bookingName;
-    
-    private List<Bookingtype> bookingTypeList;
+    private int resortID;
+    private int packageID;
+    private int totalPrice;
     private String selectedType;
-    private Map<String,String> bookingTypeMap;
-    
-    @EJB
-    private BookingTypeDropdown bookingTypeDropdown;
-    
-    /**
-     * Creates a new instance of BookingBean
-     */
+  
     public BookingBean() {
     }
 
-     @PostConstruct
-     private void allBookingTypes()
-     {
-         bookingTypeMap=new LinkedHashMap<String,String>();
-         
-         try{
-                bookingTypeList = bookingTypeDropdown.getAllBookingType();
-                
-                for (Bookingtype b: bookingTypeList){
-                    bookingTypeMap.put(b.getTypeName(),b.getTypeId().toString());
-                }
-           }
-         catch (Exception ex) {
-                 Logger.getLogger(BookingDetailsSearchBean.class.getName()).log(Level.SEVERE, null, ex);
-             }
+     
+     
+     public String outcome(){
+       
+	return "paymentGateway";
+        
      }
+
+    public int getResortID() {
+        return resortID;
+    }
+
+    public void setResortID(int resortID) {
+        this.resortID = resortID;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
+    }
+
+    public int getPackageID() {
+        return packageID;
+    }
+
+    public void setPackageID(int packageID) {
+        this.packageID = packageID;
+    }
+     
+     
     public String getBookingDate() {
         return bookingDate;
     }
@@ -73,13 +84,7 @@ public class BookingBean implements Serializable {
         this.bookingName = bookingName;
     }
 
-    public List<Bookingtype> getBookingTypeList() {
-        return bookingTypeList;
-    }
-
-    public void setBookingTypeList(List<Bookingtype> bookingTypeList) {
-        this.bookingTypeList = bookingTypeList;
-    }
+   
 
     public String getSelectedType() {
         return selectedType;
@@ -89,13 +94,6 @@ public class BookingBean implements Serializable {
         this.selectedType = selectedType;
     }
 
-    public Map<String, String> getBookingTypeMap() {
-        return bookingTypeMap;
-    }
-
-    public void setBookingTypeMap(Map<String, String> bookingTypeMap) {
-        this.bookingTypeMap = bookingTypeMap;
-    }
-    
+   
     
 }

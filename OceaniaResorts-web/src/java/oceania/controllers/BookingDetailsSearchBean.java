@@ -55,7 +55,7 @@ public class BookingDetailsSearchBean implements Serializable {
         this.selectedType = selectedType;
     }
      @PostConstruct
-     private void allBookingTypes()
+     private void init()
      {
          bookingTypeMap=new LinkedHashMap<String,String>();
          

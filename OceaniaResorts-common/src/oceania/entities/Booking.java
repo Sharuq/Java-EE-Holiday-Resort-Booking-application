@@ -35,8 +35,9 @@ import javax.xml.bind.annotation.XmlRootElement;
     @NamedQuery(name = "Booking.findAll", query = "SELECT b FROM Booking b")
     , @NamedQuery(name = "Booking.findByBookingNo", query = "SELECT b FROM Booking b WHERE b.bookingNo = :bookingNo")
     , @NamedQuery(name = "Booking.findByBookingName", query = "SELECT b FROM Booking b WHERE b.bookingName = :bookingName")
+    , @NamedQuery(name = "Booking.findByBookingDate", query = "SELECT b FROM Booking b WHERE b.bookingDate = :bookingDate")
     , @NamedQuery(name = "Booking.findByBookingTypeId", query = "SELECT b FROM Booking b WHERE b.bookingTypeid.typeId = :bookingTypeid")
-    , @NamedQuery(name = "Booking.findByBookingDate", query = "SELECT b FROM Booking b WHERE b.bookingDate = :bookingDate")})
+        , @NamedQuery(name = "Booking.findByTotalPrice", query = "SELECT b FROM Booking b WHERE b.totalPrice = :totalPrice")})
 public class Booking implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -55,6 +56,10 @@ public class Booking implements Serializable {
     @Column(name = "BOOKING_DATE", nullable = false)
     @Temporal(TemporalType.DATE)
     private Date bookingDate;
+    @Basic(optional = false)
+    @NotNull
+    @Column(name = "TOTAL_PRICE", nullable = false)
+    private int totalPrice;
     @JoinColumn(name = "BOOKING_TYPEID", referencedColumnName = "TYPE_ID", nullable = false)
     @ManyToOne(optional = false)
     private Bookingtype bookingTypeid;
@@ -75,10 +80,11 @@ public class Booking implements Serializable {
         this.bookingNo = bookingNo;
     }
 
-    public Booking(Integer bookingNo, String bookingName, Date bookingDate) {
+    public Booking(Integer bookingNo, String bookingName, Date bookingDate, int totalPrice) {
         this.bookingNo = bookingNo;
         this.bookingName = bookingName;
         this.bookingDate = bookingDate;
+        this.totalPrice = totalPrice;
     }
 
     public Integer getBookingNo() {
@@ -103,6 +109,14 @@ public class Booking implements Serializable {
 
     public void setBookingDate(Date bookingDate) {
         this.bookingDate = bookingDate;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public Bookingtype getBookingTypeid() {

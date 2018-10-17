@@ -6,7 +6,9 @@
 package oceania.entities;
 
 import java.io.Serializable;
+import java.util.Collection;
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -14,10 +16,12 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import javax.xml.bind.annotation.XmlRootElement;
+import javax.xml.bind.annotation.XmlTransient;
 
 /**
  *
@@ -64,6 +68,8 @@ public class Resort implements Serializable {
     private String resortLandscape;
     @Column(name = "SUR_CHARGE")
     private Integer surCharge;
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "resortId")
+    private Collection<Booking> bookingCollection;
 
     public Resort() {
     }
@@ -126,6 +132,15 @@ public class Resort implements Serializable {
 
     public void setSurCharge(Integer surCharge) {
         this.surCharge = surCharge;
+    }
+
+    @XmlTransient
+    public Collection<Booking> getBookingCollection() {
+        return bookingCollection;
+    }
+
+    public void setBookingCollection(Collection<Booking> bookingCollection) {
+        this.bookingCollection = bookingCollection;
     }
 
     @Override

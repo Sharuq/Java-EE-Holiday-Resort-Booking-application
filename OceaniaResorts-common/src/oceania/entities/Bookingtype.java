@@ -33,8 +33,8 @@ import javax.xml.bind.annotation.XmlTransient;
 @NamedQueries({
     @NamedQuery(name = "Bookingtype.findAll", query = "SELECT b FROM Bookingtype b")
     , @NamedQuery(name = "Bookingtype.findByTypeId", query = "SELECT b FROM Bookingtype b WHERE b.typeId = :typeId")
-    , @NamedQuery(name = "Bookingtype.findAllTypeName", query = "SELECT b.typeName FROM Bookingtype b")
-    , @NamedQuery(name = "Bookingtype.findByTypeName", query = "SELECT b FROM Bookingtype b WHERE b.typeName = :typeName")})
+      , @NamedQuery(name = "Bookingtype.findAllTypeName", query = "SELECT b.typeName FROM Bookingtype b")
+        , @NamedQuery(name = "Bookingtype.findByTypeName", query = "SELECT b FROM Bookingtype b WHERE b.typeName = :typeName")})
 public class Bookingtype implements Serializable {
 
     private static final long serialVersionUID = 1L;

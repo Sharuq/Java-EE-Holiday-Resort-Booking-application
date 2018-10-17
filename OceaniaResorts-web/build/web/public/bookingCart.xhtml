@@ -67,25 +67,27 @@
             <h3 style="font-weight: 600">Enter Check In Details: </h3>
             <h:form>
              <h4>Booking Name:</h4>   
-             <h:inputText value="#{bookingBean.bookingName}"  required="true" requiredMessage="Please Enter Booking Name" binding="#{o1}" pt:placeholder="Enter Booking Name"></h:inputText>
+             <h:inputText value="#{bookingCartController.bookingName}"  required="true" requiredMessage="Please Enter Booking Name" binding="#{o1}" pt:placeholder="Enter Booking Name"></h:inputText>
              <br></br>
              <h4>Check In Date:</h4>   
-             <h:inputText   value="#{bookingBean.bookingDate}"  required="true" requiredMessage="Please Enter Check In Date" binding="#{o2}" pt:placeholder="Enter Check In Date"></h:inputText>
+             <h:inputText   value="#{bookingCartController.bookingDate}"  required="true" requiredMessage="Please Enter Check In Date" binding="#{o2}" pt:placeholder="Enter Check In Date"></h:inputText>
              <br></br>
              <h4>Choose a booking type:</h4> 
-             <h:selectOneMenu  value="#{bookingBean.selectedType}">
-                    <f:selectItems value="#{bookingBean.bookingTypeMap}"></f:selectItems>
+             <h:selectOneMenu  value="#{bookingCartController.selectedType}">
+                 <f:selectItems value="#{bookingCartController.bookingTypeMap}"></f:selectItems>
              </h:selectOneMenu>
              <br></br><br></br>
-             <h:commandButton  id="btnsearch" value ="Procced To Check Out" action="#{bookingDetailsSearchBean.searchBooking()}"></h:commandButton>
             
-            
-             <h:commandButton action="#{bookingBean.outcome()}" value="Book">
-                 <f:setPropertyActionListener target="#{bookingBean.bookingName}" value="#{bookingBean.bookingName}" />
-                 <f:setPropertyActionListener target="#{bookingBean.bookingName}" value="#{bookingBean.bookingDate}" />
-                 <f:setPropertyActionListener target="#{bookingBean.selectedType}" value="#{bookingBean.selectedType}" />
-               
-               </h:commandButton>
+             <h:commandButton action="#{bookingBean.outcome()}" value="Procced To Check Out">
+                 
+                 <f:setPropertyActionListener target="#{bookingBean.bookingName}" value="#{bookingCartController.bookingName}" />
+                 <f:setPropertyActionListener target="#{bookingBean.bookingDate}" value="#{bookingCartController.bookingDate}" />
+                 <f:setPropertyActionListener target="#{bookingBean.selectedType}" value="#{bookingCartController.selectedType}" />
+                 <f:setPropertyActionListener target="#{bookingBean.resortID}" value="#{bookingCartController.resortID}" />
+                 <f:setPropertyActionListener target="#{bookingBean.packageID}" value="#{bookingCartController.packageID}" />
+                 <f:setPropertyActionListener target="#{bookingBean.totalPrice}" value="#{bookingCartController.total}" />
+             
+             </h:commandButton>
              
             </h:form>
             </div>

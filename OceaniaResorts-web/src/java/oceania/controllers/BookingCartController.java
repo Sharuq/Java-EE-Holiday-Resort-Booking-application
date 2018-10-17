@@ -6,15 +6,20 @@
 package oceania.controllers;
 
 import java.io.Serializable;
+import java.util.LinkedHashMap;
+import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
-import javax.enterprise.context.RequestScoped;
 import javax.enterprise.context.SessionScoped;
 import javax.faces.context.FacesContext;
+import oceania.entities.Bookingtype;
 import oceania.entities.Packages;
 import oceania.entities.Resort;
+import oceania.search.BookingTypeDropdown;
 import oceania.search.PackageTypeDropDown;
 import oceania.search.ResortTypeDropDown;
 
@@ -30,7 +35,8 @@ public class BookingCartController implements Serializable{
     private  ResortTypeDropDown resortTypeDropDown;
     @EJB
     private  PackageTypeDropDown packageTypeDropDown;
-    
+    @EJB
+    private BookingTypeDropdown bookingTypeDropdown;
     
     private int resortID;
     private Resort resort;
@@ -38,10 +44,16 @@ public class BookingCartController implements Serializable{
     private Packages newPackage;
     private String option1;
     private String option2;
-    
+    private String bookingDate;
+    private String bookingName;
     private int price=0;
     private int surcharge=0;
     private float total=0;
+     private List<Bookingtype> bookingTypeList;
+    private String selectedType;
+    private Map<String,String> bookingTypeMap;
+    
+    
     /**
      * Creates a new instance of BookingCartController
      */
@@ -49,6 +61,22 @@ public class BookingCartController implements Serializable{
         
     }
 
+     @PostConstruct
+     private void init()
+     {
+     bookingTypeMap=new LinkedHashMap<String,String>();
+         
+         try{
+                bookingTypeList = bookingTypeDropdown.getAllBookingType();
+                
+                for (Bookingtype b: bookingTypeList){
+                    bookingTypeMap.put(b.getTypeName(),b.getTypeId().toString());
+                }
+           }
+         catch (Exception ex) {
+                 Logger.getLogger(BookingDetailsSearchBean.class.getName()).log(Level.SEVERE, null, ex);
+             }
+     }
     public String outcome(){
         try{
         resortID=Integer.parseInt(option1);
@@ -58,6 +86,8 @@ public class BookingCartController implements Serializable{
         price=newPackage.getPackageCharge();
         surcharge= resort.getSurCharge();
         total=(float)(price+((price/100)*surcharge));
+        bookingDate="";
+        bookingName="";
         }
         catch (Exception ex) {
                  Logger.getLogger(BookingCartController.class.getName()).log(Level.SEVERE, null, ex);
@@ -73,12 +103,52 @@ public class BookingCartController implements Serializable{
         this.price = price;
     }
 
+    public List<Bookingtype> getBookingTypeList() {
+        return bookingTypeList;
+    }
+
+    public void setBookingTypeList(List<Bookingtype> bookingTypeList) {
+        this.bookingTypeList = bookingTypeList;
+    }
+
+    public String getSelectedType() {
+        return selectedType;
+    }
+
+    public void setSelectedType(String selectedType) {
+        this.selectedType = selectedType;
+    }
+
+    public Map<String, String> getBookingTypeMap() {
+        return bookingTypeMap;
+    }
+
+    public void setBookingTypeMap(Map<String, String> bookingTypeMap) {
+        this.bookingTypeMap = bookingTypeMap;
+    }
+
     public int getSurcharge() {
         return surcharge;
     }
 
     public void setSurcharge(int surcharge) {
         this.surcharge = surcharge;
+    }
+
+    public String getBookingDate() {
+        return bookingDate;
+    }
+
+    public void setBookingDate(String bookingDate) {
+        this.bookingDate = bookingDate;
+    }
+
+    public String getBookingName() {
+        return bookingName;
+    }
+
+    public void setBookingName(String bookingName) {
+        this.bookingName = bookingName;
     }
 
     public float getTotal() {

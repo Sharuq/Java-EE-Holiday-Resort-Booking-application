@@ -62,7 +62,7 @@
                 <h3>Payment Details</h3>
                 <li>Package Charge: A$ #{detailsBean.booking.packageId.packageCharge} </li>
                 <li>Resort Sur-charge: #{detailsBean.booking.resortId.surCharge} %</li>
-                <h4 style="font-weight: 600">Total Price: A$ #{detailsBean.total}</h4> 
+                <h4 style="font-weight: 600">Total Price: A$ #{detailsBean.booking.totalPrice}.00</h4> 
         </ul> 
        
         <p><h:link value="Return to Bookings Page" outcome="searchBooking"/> </p>
