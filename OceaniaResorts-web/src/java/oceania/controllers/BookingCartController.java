@@ -80,9 +80,9 @@ public class BookingCartController implements Serializable{
     public String outcome(){
         try{
         resortID=Integer.parseInt(option1);
-        resort= resortTypeDropDown.resortDetails(resortID);
+        resort= resortTypeDropDown.getResortDetails(resortID);
         packageID=Integer.parseInt(option2);
-        newPackage= packageTypeDropDown.packageDetails(packageID);
+        newPackage= packageTypeDropDown.getPackageDetails(packageID);
         price=newPackage.getPackageCharge();
         surcharge= resort.getSurCharge();
         total=(float)(price+((price/100)*surcharge));

@@ -18,4 +18,5 @@ public interface BookingTypeDropdown {
     
      public List<Bookingtype> getAllBookingType() throws Exception;
      public List<String> getAllBookingTypeName() throws Exception;
+     public Bookingtype getBookingtypeDetails(int bookingTypeID) throws Exception;
 }

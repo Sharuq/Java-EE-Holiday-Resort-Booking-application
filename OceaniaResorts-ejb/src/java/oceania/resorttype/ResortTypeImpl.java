@@ -31,7 +31,7 @@ public class ResortTypeImpl implements ResortTypeDropDown
     }
 
     @Override
-    public Resort resortDetails(int ResortID) throws Exception {
+    public Resort getResortDetails(int ResortID) throws Exception {
         TypedQuery<Resort> query =entityManager.createNamedQuery("Resort.findByResortId",Resort.class);
         query.setParameter("resortId", ResortID);
         return query.getSingleResult();}

@@ -32,7 +32,7 @@ public class PackageTypeImpl implements PackageTypeDropDown
      }
 
     @Override
-    public Packages packageDetails(int PackageID) throws Exception {
+    public Packages getPackageDetails(int PackageID) throws Exception {
         TypedQuery<Packages> query =entityManager.createNamedQuery("Packages.findByPackageId",Packages.class);
         query.setParameter("packageId", PackageID);
         return query.getSingleResult();

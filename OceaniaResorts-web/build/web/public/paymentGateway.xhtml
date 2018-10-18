@@ -18,10 +18,12 @@
           
         <script src="../resources/js/myscript1.js" type="text/javascript"></script>
     </h:head>
+    
     <h:body>
-        <div class="well container col-md-3 "></div>
         
-            <div class="well container col-md-6 ">
+        
+        
+        <div class="well container col-md-6 ">
        <h:form>
            <h3>Credit Card Number</h3>
            <h:inputText id = "nameInput"  required="true" requiredMessage="Please Enter Credit Card Number" pt:placeholder="XXXX-XXXX-XXXX-XXXX">
@@ -34,20 +36,22 @@
             <f:validateRegex pattern = "([0-9].*{3})" />
          </h:inputSecret>
            <br></br>
-          <h3>EXpiry Date</h3>
+          <h3>Expiry Date</h3>
          <h:inputText id = "expiryInput"
-            label = "CCV"  required="true" requiredMessage="Please Enter Expiry Date" pt:placeholder="MM/YY">
+            label = "Expiry Date"  required="true" requiredMessage="Please Enter Expiry Date" pt:placeholder="MM/YY">
             <f:validateRegex pattern = "([0-9].*{3})" />
          </h:inputText>
              <br></br>  <br></br>			
          
-         <h:commandButton value = "submit" action = "result"/>
+         <h:commandButton value = "Pay Now" action = "#{bookingBean.newOutcome()}">
+                       
+         </h:commandButton>
          <h:message for = "ccvInput" style = "color:red" />
          <h:message for = "nameInput" style = "color:red" />
          <h:message for = "expiryInput" style = "color:red" />
          </h:form>
-         <p><h:link value="Return to Home Page" outcome="index"/> </p>
+            
+          <p><h:link value="Return to Home Page" outcome="index"/> </p>
          </div>
-            </div>
     </h:body>
 </html>

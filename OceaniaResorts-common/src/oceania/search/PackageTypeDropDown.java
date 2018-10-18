@@ -15,5 +15,5 @@ import oceania.entities.Packages;
 @Remote
 public interface PackageTypeDropDown {
       public List<Packages> getAllPackageType() throws Exception;
-      public Packages packageDetails(int PackageID) throws Exception;
+      public Packages getPackageDetails(int PackageID) throws Exception;
 }

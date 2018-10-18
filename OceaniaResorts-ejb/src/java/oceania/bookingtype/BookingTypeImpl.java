@@ -13,6 +13,7 @@ import javax.ejb.Stateless;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.TypedQuery;
 /**
  *
  * @author sharuq
@@ -33,5 +34,13 @@ public class BookingTypeImpl implements BookingTypeDropdown{
     public List<Bookingtype> getAllBookingType() throws Exception {
      Query query =entityManager.createNamedQuery("Bookingtype.findAll");
         return query.getResultList(); 
+    }
+
+    @Override
+    public Bookingtype getBookingtypeDetails(int bookingTypeID) throws Exception {
+     TypedQuery<Bookingtype> query =entityManager.createNamedQuery("Bookingtype.findByTypeId",Bookingtype.class);
+        query.setParameter("typeId", bookingTypeID);
+        return query.getSingleResult();
+    
     }
 }

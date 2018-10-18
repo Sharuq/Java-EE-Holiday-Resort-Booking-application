@@ -5,17 +5,14 @@
  */
 package oceania.search;
 
-import java.util.List;
 import javax.ejb.Remote;
-import oceania.entities.Resort;
+import oceania.entities.Users;
 
 /**
  *
  * @author mdsha
  */
 @Remote
-public interface ResortTypeDropDown {
-          public List<Resort> getAllResortType() throws Exception;
-          public Resort getResortDetails(int ResortID) throws Exception;
-    
+public interface UserDetails {
+    public Users getUserDetails(String emailID) throws Exception;
 }

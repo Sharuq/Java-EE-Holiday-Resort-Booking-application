@@ -8,6 +8,7 @@ package oceania.controllers;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
@@ -15,8 +16,17 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
+import javax.faces.context.FacesContext;
+import oceania.entities.Booking;
 import oceania.entities.Bookingtype;
+import oceania.entities.Packages;
+import oceania.entities.Resort;
+import oceania.entities.Users;
+import oceania.repositories.BookingRepository;
 import oceania.search.BookingTypeDropdown;
+import oceania.search.PackageTypeDropDown;
+import oceania.search.ResortTypeDropDown;
+import oceania.search.UserDetails;
 
 /**
  *
@@ -31,18 +41,71 @@ public class BookingBean implements Serializable {
     private int packageID;
     private int totalPrice;
     private String selectedType;
-  
+    private String username;
+    private Booking booking;
+    private Resort resort;
+    private Bookingtype bookingType;
+    private Packages newPackage;
+    private Users user;
+    
+    @EJB
+    private BookingRepository bookingRepository;
+    @EJB
+    private  ResortTypeDropDown resortTypeDropDown;
+    @EJB
+    private  PackageTypeDropDown packageTypeDropDown;
+    @EJB
+    private BookingTypeDropdown bookingTypeDropdown;
+    @EJB
+    private UserDetails userDeatils;
+    
     public BookingBean() {
     }
 
-     
+
+     @PostConstruct
+        public void init() {
+         username = FacesContext.getCurrentInstance().getExternalContext().getRemoteUser();
+      }
      
      public String outcome(){
-       
-	return "paymentGateway";
+         return "paymentGateway";
+     }
+     
+     public String newOutcome(){
+       try{
+            SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+            java.util.Date date_util = sdf1.parse(bookingDate);
+            java.sql.Date sqlBookingDate = new java.sql.Date(date_util.getTime());
+            resort= resortTypeDropDown.getResortDetails(resortID);
+            newPackage= packageTypeDropDown.getPackageDetails(packageID);
+            bookingType= bookingTypeDropdown.getBookingtypeDetails(Integer.parseInt(selectedType));
+            user= userDeatils.getUserDetails(username);
+            
+            booking=new Booking();
+            
+            booking.setBookingName(bookingName);
+            booking.setBookingDate(sqlBookingDate);
+            booking.setBookingTypeid(bookingType);
+            booking.setPackageId(newPackage);
+            booking.setResortId(resort);
+            booking.setUserId(user);
+            booking.setTotalPrice(totalPrice);
+            
+            bookingRepository.addBooking(booking);
+           return "sucess";
+            
+       }
+       catch (Exception ex) {
+                 Logger.getLogger(BookingBean.class.getName()).log(Level.SEVERE, null, ex);
+                 return "paymentGateway";
+             }
+         
+	
         
      }
 
+     
     public int getResortID() {
         return resortID;
     }
@@ -70,6 +133,38 @@ public class BookingBean implements Serializable {
      
     public String getBookingDate() {
         return bookingDate;
+    }
+
+    public Resort getResort() {
+        return resort;
+    }
+
+    public void setResort(Resort resort) {
+        this.resort = resort;
+    }
+
+    public Bookingtype getBookingType() {
+        return bookingType;
+    }
+
+    public void setBookingType(Bookingtype bookingType) {
+        this.bookingType = bookingType;
+    }
+
+    public Packages getNewPackage() {
+        return newPackage;
+    }
+
+    public void setNewPackage(Packages newPackage) {
+        this.newPackage = newPackage;
+    }
+
+    public Booking getBooking() {
+        return booking;
+    }
+
+    public void setBooking(Booking booking) {
+        this.booking = booking;
     }
 
     public void setBookingDate(String bookingDate) {

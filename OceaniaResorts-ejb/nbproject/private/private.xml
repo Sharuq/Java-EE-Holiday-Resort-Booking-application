@@ -4,7 +4,9 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/bookingtype/BookingTypeImpl.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/booking/respositories/BookingRepositoryImpl.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/packagetype/PackageTypeImpl.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/usersdetails/UserDetailsImpl.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/search/impl/BookingSearchImpl.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/conf/persistence.xml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/resorttype/ResortTypeImpl.java</file>
