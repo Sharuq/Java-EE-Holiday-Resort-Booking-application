@@ -119,13 +119,13 @@
     
 }
 .navbar-fixed-top {
-    min-height: 63px;
+    min-height: 70px;
 }
 
 .navbar-nav > li > a {
     padding-top: 0px;
     padding-bottom: 0px;
-    line-height: 63px;
+    line-height: 70px;
 }
 
 @media (max-width: 767px) {

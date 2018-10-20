@@ -93,7 +93,7 @@ public class BookingBean implements Serializable {
             booking.setTotalPrice(totalPrice);
             
             bookingRepository.addBooking(booking);
-           return "sucess";
+            return "sucess";
             
        }
        catch (Exception ex) {
