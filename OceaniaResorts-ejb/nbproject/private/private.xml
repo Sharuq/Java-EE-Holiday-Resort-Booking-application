@@ -5,6 +5,7 @@
         <group>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/users/impl/UserDetailsImpl.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/bookingtype/BookingTypeImpl.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/booking/respositories/BookingRepositoryImpl.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/packagetype/PackageTypeImpl.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/users/impl/UserManagementImpl.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-ejb/src/java/oceania/search/impl/BookingSearchImpl.java</file>

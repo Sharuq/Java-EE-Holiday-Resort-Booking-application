@@ -29,10 +29,7 @@ public class UserManagementImpl implements UsersManagement{
    
  @Override
     public void create(Users user) throws Exception{
-        
-        
-      
-     entityManager.persist(user); 
+      entityManager.persist(user); 
     }
 	
     @Override
@@ -40,10 +37,7 @@ public class UserManagementImpl implements UsersManagement{
       entityManager.merge(user);
     }
 
-    @Override
-    public Users find(Object id){
-      return entityManager.find(Users.class, id);
-    }
+    
 
     @Override
     public List<Users> findAll() {
@@ -52,28 +46,17 @@ public class UserManagementImpl implements UsersManagement{
         return entityManager.createQuery(cq).getResultList();
     }
 
-    @Override
-    public List<Users> findRange(int[] range) {
-      javax.persistence.criteria.CriteriaQuery cq = entityManager.getCriteriaBuilder().createQuery();
-        cq.select(cq.from(Users.class));
-        javax.persistence.Query q = entityManager.createQuery(cq);
-        q.setMaxResults(range[1] - range[0] + 1);
-        q.setFirstResult(range[0]);
-        return q.getResultList();
-    }
+   
 
     @Override
     public void remove(Users user)  {
       entityManager.remove(entityManager.merge(user));
     }
-
-    @Override
-    public int count() {
-        javax.persistence.criteria.CriteriaQuery cq = entityManager.getCriteriaBuilder().createQuery();
-        javax.persistence.criteria.Root<Users> rt = cq.from(Users.class);
-        cq.select(entityManager.getCriteriaBuilder().count(rt));
-        javax.persistence.Query q = entityManager.createQuery(cq);
-        return ((Long) q.getSingleResult()).intValue();
+    
+ @Override
+    public Users find(Object id){
+      return entityManager.find(Users.class, id);
     }
+   
     
 }

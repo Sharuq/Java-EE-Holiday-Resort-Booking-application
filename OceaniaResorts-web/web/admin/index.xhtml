@@ -28,12 +28,18 @@
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
           <li><h:outputLink value="users/List.xhtml">Users Details</h:outputLink></li>
-          <li><h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Logout" action="#{logoutController.logout()}"> </h:commandLink></h:form> </li> 
+          <li><h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Logout" action="#{navigationController.logout()}"> </h:commandLink></h:form> </li> 
           </ul>
         </div>
       </div>
     </nav>
         <br></br>
-         
+        <div class="well container" style="padding-top:10px">
+           <br></br>
+           <h1 style="font-weight: 600;color: #b92c28">ADMIN PANEL</h1> 
+            <h:outputLink style="font-size: x-large;" value="users/List.xhtml">Users Details</h:outputLink>
+            <h:form><h:commandLink style="font-size: x-large;" value="Logout" action="#{navigationController.logout()}"> </h:commandLink></h:form>
+          
+        </div>
     </h:body>
 </html>

@@ -34,7 +34,7 @@
                         <li><a class="page-scroll" href="faces/index.xhtml">Home</a></li>
                         
                         <li><h:outputLink value="public/index.xhtml">Log in</h:outputLink></li>
-                        <li><a class="page-scroll" href="#Offers">Register</a></li>
+                        <li><a class="page-scroll" href="faces/register.xhtml">Register</a></li>
                     </ul>
                 </div>
             </div>
@@ -43,24 +43,25 @@
         <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
             <div class="container" id="mybox">
-                <h1>Away from monotonous life</h1>
-
-                <h:form>
-                    <h3> Choose Our Resorts</h3>
-                    <h:selectOneMenu  value="#{indexController.selectedType1}" id="typeoptions1">
-                        <f:selectItems value="#{indexController.resortTypeMap}"></f:selectItems>
-                    </h:selectOneMenu>
-                    <br></br>
-
-                    <h3> Choose a Package</h3>
-                    <h:selectOneMenu  value="#{indexController.selectedType2}" id="typeoptions2">
-                        <f:selectItems value="#{indexController.packageTypeMap}"></f:selectItems>
-                    </h:selectOneMenu>
-                    <br></br><br></br>
-                    <h:commandButton  id="btnsearch" value ="Book"  class="text-center" styleClass="btn btn-primary" action="#{resortSearchBean.searchResort()}"></h:commandButton>
-
-                </h:form>
-            </div>
+           <h1>Away from monotonous life</h1>
+           
+           <h:form>
+               <h3> Choose Our Resorts</h3>
+               <h:selectOneMenu  value="#{indexController.selectedType1}" id="typeoptions1">
+                   <f:selectItems value="#{indexController.resortTypeMap}"></f:selectItems>
+                </h:selectOneMenu>
+               <br></br>
+               
+               <h3> Choose a Package</h3>
+               <h:selectOneMenu  value="#{indexController.selectedType2}" id="typeoptions2">
+                   <f:selectItems value="#{indexController.packageTypeMap}"></f:selectItems>
+                </h:selectOneMenu>
+               <br></br><br></br>
+              
+               <h:commandButton action="#{navigationController.publichome()}" value="Book">
+                </h:commandButton>
+           </h:form>
+     </div>
             <!-- Indicators -->
             <ol class="carousel-indicators">
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>

@@ -5,22 +5,28 @@
         <group>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/public/index.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/admin/users/Create.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/admin/index.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/public/bookingCart.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/index.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/IndexController.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/util/JsfUtil.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/public/paymentGateway.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/DetailsBean.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/Bundle.properties</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/UsersController.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/RegistrationBean.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/BookingBean.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/register.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/public/bookingDetails.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/admin/users/View.xhtml</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/login.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/BookingCartController.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/admin/users/List.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/admin/users/Edit.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/BookingDetailsSearchBean.java</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/public/searchBooking.xhtml</file>
             <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/src/java/oceania/controllers/LogoutController.java</file>
+            <file>file:/C:/Users/mdsha/Documents/NetBeansProjects/5042-Assignment/OceaniaResorts-web/web/template.xhtml</file>
         </group>
     </open-files>
 </project-private>

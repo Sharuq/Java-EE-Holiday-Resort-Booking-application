@@ -20,8 +20,10 @@
         <!-- Collect the nav links, forms, and other content for toggling -->
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
-          <li><a class="page-scroll" href="#">Log in</a></li>
-         <li><a class="page-scroll" href="#Offers">Register</a></li>
+              
+              <li> <h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Home" action="#{navigationController.home()}"> </h:commandLink>&nbsp;&nbsp;&nbsp;</h:form></li> 
+           <li> <h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Register" action="#{navigationController.register()}"> </h:commandLink></h:form> </li> 
+          
           </ul>
         </div>
       </div>
@@ -33,7 +35,7 @@
          <form method="POST" action="j_security_check">
            <label for="uname"><b>Email:</b></label>          
            <input type='text' class="form-control" placeholder="Email" name="j_username"/>
-                 <br></br>          <label for="uname"><b>Password:</b></label>
+                 <br></br><label for="uname"><b>Password:</b></label>
          <input type='password' class="form-control" placeholder="Password" name="j_password"/>
          <br></br>
            <input type="submit" value="Submit"/>

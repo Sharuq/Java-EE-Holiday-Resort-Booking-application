@@ -12,18 +12,12 @@
             <h:form id="UsersEditForm">
                 <h:panelGroup id="display">
                     <p:panelGrid columns="2" rendered="#{usersController.user != null}">
-                        <p:outputLabel value="#{bundle.EditUsersLabel_userId}" for="userId" />
-                        <p:inputText id="userId" value="#{usersController.user.userId}" title="#{bundle.EditUsersTitle_userId}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_userId}"/>
-                        <p:outputLabel value="#{bundle.EditUsersLabel_userRole}" for="userRole" />
-                        <p:inputText id="userRole" value="#{usersController.user.userRole}" title="#{bundle.EditUsersTitle_userRole}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_userRole}"/>
                         <p:outputLabel value="#{bundle.EditUsersLabel_userName}" for="userName" />
                         <p:inputText id="userName" value="#{usersController.user.userName}" title="#{bundle.EditUsersTitle_userName}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_userName}"/>
                         <p:outputLabel value="#{bundle.EditUsersLabel_address}" for="address" />
                         <p:inputText id="address" value="#{usersController.user.address}" title="#{bundle.EditUsersTitle_address}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_address}"/>
                         <p:outputLabel value="#{bundle.EditUsersLabel_email}" for="email" />
                         <p:inputText id="email" value="#{usersController.user.email}" title="#{bundle.EditUsersTitle_email}" required="true" requiredMessage="#{bundle.EditUsersRequiredMessage_email}"/>
-                        <p:outputLabel value="#{bundle.EditUsersLabel_password}" for="password" />
-                        <p:inputText id="password" value="#{usersController.user.password}" title="#{bundle.EditUsersTitle_password}" />
                         <p:outputLabel value="#{bundle.EditUsersLabel_userNameLast}" for="userNameLast" />
                         <p:inputText id="userNameLast" value="#{usersController.user.userNameLast}" title="#{bundle.EditUsersTitle_userNameLast}" />
                     </p:panelGrid>

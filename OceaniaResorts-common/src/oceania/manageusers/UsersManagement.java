@@ -20,14 +20,12 @@ public interface UsersManagement {
  
     public void edit(Users user) throws Exception;
 
+    public void remove(Users entity);
+    
     public Users find(Object id) ;
 
     public List<Users> findAll();
 
-    public List<Users> findRange(int[] range);
-
-    public void remove(Users entity);
-    
-    public int count();
+   
 }
 

@@ -1,0 +1,83 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <title>Oceania Resorts</title>
+        <h:outputStylesheet name="css/jsfcrud.css"/>
+        <h:outputStylesheet  name="css/style1.css"></h:outputStylesheet>
+        <h:outputStylesheet  name="css/jquery-ui.css"></h:outputStylesheet>
+        <h:outputStylesheet name="css/nice-select.css"></h:outputStylesheet>
+        <h:outputStylesheet name="css/bootstrap-datepicker.css"></h:outputStylesheet>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/yeti/bootstrap.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+        <script type="text/javascript" src="https://code.jquery.com/ui/1.12.1/jquery-ui.js" />
+        <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css" />
+    </h:head>
+    <h:body>
+
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container"> 
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header page-scroll">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+                    <a class="navbar-brand page-scroll" href="#main"><img src="resources/assets/logo.png" width="80" height="30" alt="image missing" /></a> </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav">
+                        <li><a class="page-scroll" href="faces/index.xhtml">Home</a></li>
+                        
+                        <li><h:outputLink value="public/index.xhtml">Log in</h:outputLink></li>
+                        <li><a class="page-scroll" href="faces/register.xhtml">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        
+        
+    <div class="well container text-center">
+        <br></br>
+        <h2 style="font-weight: 600">Sign Up Form</h2>
+        <br></br><br></br>
+     <h:form>
+  
+     <h3>Enter Your First Name:</h3>
+      <h:inputText id="fname" value="#{registrationBean.fname}" validator="#{registrationBean.validateFName}">
+     <f:ajax event="blur" execute="@this" render="nameError"/>
+     </h:inputText>
+      <h:message for="fname" id="nameError" style="color: red"/>
+     <h3>Enter Your Last Name:</h3>
+     <h:inputText id="lname" value="#{registrationBean.lname}" validator="#{registrationBean.validateLName}">
+     <f:ajax event="blur" execute="@this" render="name1Error"/>
+     </h:inputText>
+      <h:message for="lname" id="name1Error" style="color: red"/>
+      <h3>Enter Your Email Id:</h3>
+     <h:inputText id="emailId" value="#{registrationBean.emailId}" validator="#{registrationBean.validateEmailId}">
+     <f:ajax event="blur" execute="@this" render="emailIdError"/>
+     </h:inputText>
+     <h:message for="emailId" id="emailIdError" style="color: red"/>
+     <h3>Enter Your Address:</h3>
+     <h:inputText id="address" value="#{registrationBean.address}"  validator="#{registrationBean.validateAddress}">
+     <f:ajax event="blur" execute="@this" render="addressError"/>
+     </h:inputText>
+     <h:message for="address" id="addressError" style="color: red"/>
+     <h3>Enter Password</h3>
+     <h:inputSecret id="pass" value="#{registrationBean.password}" validator="#{registrationBean.validatePassword}">
+     <f:ajax event="blur" execute="@this" render="passError"/>    
+     </h:inputSecret>
+     <h:message for="pass" id="passError" style="color: red"/>
+     <br></br><br></br>
+     <p><h:commandButton value="Register" action="#{registrationBean.register()}"/></p>    
+      
+     </h:form>
+        
+      </div>   
+        
+       
+    </h:body>
+</html>
