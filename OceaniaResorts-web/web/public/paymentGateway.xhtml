@@ -23,23 +23,26 @@
         
         
         
-        <div class="well container col-md-6 ">
-       <h:form>
+        <div class="well container col-md-6 text-center">
+            <br></br>
+            <h1 style="font-weight: 600;color: crimson">Payment Gateway</h1> 
+        <h:form>
+           
            <h3>Credit Card Number</h3>
-           <h:inputText id = "nameInput"  required="true" requiredMessage="Please Enter Credit Card Number" pt:placeholder="XXXX-XXXX-XXXX-XXXX">
-             <f:validateRegex pattern = "([0-9].*{10})" />
+           <h:inputText id = "nameInput"  required="true" requiredMessage="Please Enter Credit Card Number" pt:placeholder="XXXX-XXXX">
+             <f:validateRegex pattern = "([0-9]{8})" />
          </h:inputText>	
              <br></br>
            <h3>CCV</h3>
          <h:inputSecret id = "ccvInput"
             label = "CCV"  required="true" requiredMessage="Please Enter CCV" pt:placeholder="CCV" >
-            <f:validateRegex pattern = "([0-9].*{3})" />
+            <f:validateRegex pattern = "([0-9]{3})" />
          </h:inputSecret>
            <br></br>
           <h3>Expiry Date</h3>
          <h:inputText id = "expiryInput"
             label = "Expiry Date"  required="true" requiredMessage="Please Enter Expiry Date" pt:placeholder="MM/YY">
-            <f:validateRegex pattern = "([0-9].*{3})" />
+            
          </h:inputText>
              <br></br>  <br></br>			
          

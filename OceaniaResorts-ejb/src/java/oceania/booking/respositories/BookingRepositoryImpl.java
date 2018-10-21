@@ -24,6 +24,7 @@ public class BookingRepositoryImpl implements BookingRepository{
     @Override
     public void addBooking(Booking booking) throws Exception {
       entityManager.persist(booking);
+      //entityManager.flush();
     }
    
     

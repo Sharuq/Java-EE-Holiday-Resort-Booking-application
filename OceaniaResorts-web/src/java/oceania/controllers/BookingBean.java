@@ -47,6 +47,7 @@ public class BookingBean implements Serializable {
     private Bookingtype bookingType;
     private Packages newPackage;
     private Users user;
+    private int booking_no;
     
     @EJB
     private BookingRepository bookingRepository;
@@ -74,7 +75,7 @@ public class BookingBean implements Serializable {
      
      public String newOutcome(){
        try{
-            SimpleDateFormat sdf1 = new SimpleDateFormat("dd-MM-yyyy");
+            SimpleDateFormat sdf1 = new SimpleDateFormat("mm/dd/yyyy");
             java.util.Date date_util = sdf1.parse(bookingDate);
             java.sql.Date sqlBookingDate = new java.sql.Date(date_util.getTime());
             resort= resortTypeDropDown.getResortDetails(resortID);
@@ -93,6 +94,7 @@ public class BookingBean implements Serializable {
             booking.setTotalPrice(totalPrice);
             
             bookingRepository.addBooking(booking);
+            //booking_no= booking.getBookingNo();
             return "sucess";
             
        }
@@ -104,6 +106,30 @@ public class BookingBean implements Serializable {
 	
         
      }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+    public int getBooking_no() {
+        return booking_no;
+    }
+
+    public void setBooking_no(int booking_no) {
+        this.booking_no = booking_no;
+    }
 
      
     public int getResortID() {

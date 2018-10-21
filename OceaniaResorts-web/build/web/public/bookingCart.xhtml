@@ -15,7 +15,6 @@
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/yeti/bootstrap.css"></link>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <h:outputScript  name="js/myscript.js"></h:outputScript>
     </h:head>
     <h:body>
 
@@ -29,8 +28,6 @@
         <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
           <ul class="nav navbar-nav">
           <li><a class="page-scroll" href="index.xhtml">Home</a></li>
-          <li><a class="page-scroll" href="#Destinations">Resorts</a></li>
-          <li><a class="page-scroll" href="#Activities">Packages</a></li>
           <li><a class="page-scroll active" href="searchBooking.xhtml">Bookings</a></li>
           <li> <h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Logout" action="#{navigationController.logout()}"> </h:commandLink></h:form> </li> 
           
@@ -69,11 +66,18 @@
             <h3 style="font-weight: 600">Enter Check In Details: </h3>
             <h:form>
              <h4>Booking Name:</h4>   
-             <h:inputText value="#{bookingCartController.bookingName}"  required="true" requiredMessage="Please Enter Booking Name" binding="#{o1}" pt:placeholder="Enter Booking Name"></h:inputText>
+             <h:inputText id="bname" value="#{bookingCartController.bookingName}"  validator="#{bookingCartController.validateBName}" required="true" requiredMessage="Please Enter Booking Name" binding="#{o1}" pt:placeholder="Enter Booking Name">
+             <f:ajax event="blur" execute="@this" render="bnameError"/>
+             </h:inputText>
+             <h:message for="bname" id="bnameError" style="color: red"/>
              <br></br>
              <h4>Check In Date:</h4>   
-             <h:inputText   value="#{bookingCartController.bookingDate}"   styleClass="form-control datepicker" required="true" requiredMessage="Please Enter Check In Date" binding="#{o2}" pt:placeholder="dd-MM-yyyy"></h:inputText>
+             <h:inputText  id="datetimepicker1" value="#{bookingCartController.bookingDate}" validator="#{bookingCartController.validateDate}" required="true" requiredMessage="Please Enter Check In Date" binding="#{o2}" pt:placeholder="mm/dd/yyyy">
+             <f:ajax event="blur" execute="@this" render="dateError"/>
+             </h:inputText>
+             <h:message for="datetimepicker1" id="dateError" style="color: red"/>
              <br></br>
+                   
              <h4>Choose a booking type:</h4> 
              <h:selectOneMenu  value="#{bookingCartController.selectedType}">
                  <f:selectItems value="#{bookingCartController.bookingTypeMap}"></f:selectItems>
@@ -97,5 +101,4 @@
         </div>
         
        </h:body>
-
 </html>

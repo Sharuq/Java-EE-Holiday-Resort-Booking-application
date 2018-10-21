@@ -15,7 +15,11 @@ import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
+import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
+import javax.faces.validator.ValidatorException;
+import javax.validation.constraints.Pattern;
 import oceania.entities.Bookingtype;
 import oceania.entities.Packages;
 import oceania.entities.Resort;
@@ -44,6 +48,7 @@ public class BookingCartController implements Serializable{
     private Packages newPackage;
     private String option1;
     private String option2;
+    @Pattern(regexp = "^(1[0-2]|0[1-9])/(3[01]|[12][0-9]|0[1-9])/[0-9]{4}$",message = "Date is in not proper format")
     private String bookingDate;
     private String bookingName;
     private int price=0;
@@ -95,6 +100,16 @@ public class BookingCartController implements Serializable{
 	return "bookingCart";
 	}
 
+    public void validateBName(FacesContext f, UIComponent c, Object obj){
+        String s=(String)obj;
+        if(s.length()==0)
+            throw new ValidatorException(new FacesMessage("Booking Name cannot be empty."));        
+    }
+    public void validateDate(FacesContext f, UIComponent c, Object obj){
+        String s=(String)obj;
+        if(s.length()==0)
+            throw new ValidatorException(new FacesMessage("Date cannot be empty."));        
+    }
     public int getPrice() {
         return price;
     }

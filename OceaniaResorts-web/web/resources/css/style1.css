@@ -157,7 +157,26 @@
 }
 
 
+#mybox2{
+    position: absolute;
+        top:17%;
+        left: 35%;
+        margin-top:50px;
+        width: 400px;
+        height: 480px;
+        background: linear-gradient(to right, rgba(242,246,248,1) 0%, rgba(216,225,231,0.97) 16%, rgba(181,198,208,0.91) 51%, rgba(224,239,249,0.83) 100%);z-index: 999999;
+        
+        border-radius: 6px;
+        z-index: 9999;
+        
+}
 
+#mybox2 h1{
+    font-weight: 800;
+}
+#mybox2 h3{
+    font-weight: 500;
+}
 
 
 

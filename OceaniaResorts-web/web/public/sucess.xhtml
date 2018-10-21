@@ -5,13 +5,43 @@
       xmlns:f="http://xmlns.jcp.org/jsf/core"
       xmlns:pt="http://xmlns.jcp.org/jsf/passthrough"
       xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
-          
     <h:head>
-        <title>TODO supply a title</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <title>Oceania Resorts</title>
+        <h:outputStylesheet  name="css/style1.css"></h:outputStylesheet>
+        <h:outputStylesheet  name="css/jquery-ui.css"></h:outputStylesheet>
+        <h:outputStylesheet name="css/nice-select.css"></h:outputStylesheet>
+        
+         <h:outputStylesheet name="css/bootstrap-datepicker.css"></h:outputStylesheet>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.3.7/yeti/bootstrap.css"></link>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     </h:head>
     <h:body>
-        <div>Booking Completed Successfully</div>
-        <p><h:link value="Return to Home Page" outcome="index"/> </p>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container"> 
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header page-scroll">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false"> <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+          <a class="navbar-brand page-scroll" href="index.xhtml"><img src="../resources/assets/logo.png" width="80" height="30" alt="image missing" /></a> </div>
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+          <li><a class="page-scroll" href="index.xhtml">Home</a></li>
+          <li><a class="page-scroll active" href="searchBooking.xhtml">Bookings</a></li>
+          <li> <h:form><h:commandLink style="color: #ffffff;font-size: larger;" value="Logout" action="#{navigationController.logout()}"> </h:commandLink></h:form> </li> 
+          
+          </ul>
+        </div>
+      </div>
+    </nav>
+        <div class="well container text-center">
+            <br></br>
+            <h1>Booking Completed Successfully</h1>
+           
+            <p><h:link value="Return to Home Page" outcome="index"/> </p>
+            <p><h:link value="Search your Booking Details" outcome="searchBooking"/> </p>
+        </div>
+        
     </h:body>
 </html>
